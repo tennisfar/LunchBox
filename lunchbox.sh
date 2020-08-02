@@ -2,15 +2,14 @@ LUNCHBOX="/Users/mlp/Lunchbox"
 REP="/Users/mlp/_rep"
 
 # Not on OSX
-if [[ $(uname -s) != Darwin ]]
-then
+if [[ $(uname -s) != Darwin ]]; then
   LUNCHBOX="/c/Projects/rep/Lunchbox"
   REP="/c/Projects/rep"
 
   # Pretty
   alias ll='ls -lhF --color --group-directories-first'
   alias ls='ls -hF --color --group-directories-first'
-  
+
   # Paths
   export PATH="$LUNCHBOX:$PATH"
   export PATH="$HOME/AppData/Roaming/npm:$PATH"
@@ -37,8 +36,8 @@ alias rep="cd $REP"
 alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/hpm/REPOSITORY.git" # Update git remote to GitLab
 alias fo='gitFetchAndCheckoutBranch'
 gitFetchAndCheckoutBranch() {
-	git fetch
-	git checkout $1
+  git fetch
+  git checkout $1
 }
 alias gitrecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
 alias gitfix='git gc --prune=now'
@@ -54,17 +53,15 @@ alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 alias deletealldockerimages='docker rmi $(docker images -q)'
 alias locserver='python -m SimpleHTTPServer 8005'
 
-
-
+# SAVE BOX
 alias brs='brs'
 brs() {
   box
 
-	if [[ $(uname -s) != Darwin ]] 
-  then
+  if [[ $(uname -s) != Darwin ]]; then
     echo --- backup windows
     cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
-  else 
+  else
     echo --- backup osx
   fi
 
@@ -76,8 +73,6 @@ brs() {
   cd -
 }
 
-
-
 # DS
 PATH_DS='/c/Projects/ds/develop'
 alias ds='cd $PATH_DS'
@@ -88,8 +83,8 @@ alias gitpam='git fetch && git merge origin/pam-n-sub'
 # merge latest updates from specific release branch into current branch
 alias gitrel='gitRel'
 gitRel() {
-	git fetch
-	git merge origin/release/DS-$1
+  git fetch
+  git merge origin/release/DS-$1
 }
 # check out pam-n-sub
 alias pns='fo pam-n-sub ; git pull'
