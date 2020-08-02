@@ -24,26 +24,6 @@ alias br="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded" # Update everything
 alias brp='box && git pull && cd -'
 brp # update lunchbox, also to avoid conflicts when running brs
 
-alias brs='brs'
-brs() {
-  box
-
-	if [[ $(uname -s) != Darwin ]] 
-  then
-    echo --- backup windows
-    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
-  else 
-    echo --- backup osx
-  fi
-
-  git add -A
-  git commit -m "brs updates"
-  c
-  gitadded
-  git push
-  cd -
-}
-
 alias vial='vi $LUNCHBOX/lunchbox.sh' # vi aliases
 
 # Shortcuts
@@ -73,6 +53,28 @@ alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 ### DOCKER
 alias deletealldockerimages='docker rmi $(docker images -q)'
 alias locserver='python -m SimpleHTTPServer 8005'
+
+
+
+alias brs='brs'
+brs() {
+  box
+
+	if [[ $(uname -s) != Darwin ]] 
+  then
+    echo --- backup windows
+    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
+  else 
+    echo --- backup osx
+  fi
+
+  git add -A
+  git commit -m "brs updates"
+  c
+  gitadded
+  git push
+  cd -
+}
 
 
 
