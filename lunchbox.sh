@@ -35,8 +35,8 @@ boxbackup() {
   fi
 }
 
-alias brx='brx'
-brx() {
+alias brs='brs'
+brs() {
   box
 
 	if [[ $(uname -s) != Darwin ]] 
@@ -55,7 +55,6 @@ brx() {
   cd -
 }
 
-alias brs='box ; boxbackup ; git add -A ; git commit -am "brs updates" ; c ; gitadded ; git push ; cd -'
 alias vial='vi $LUNCHBOX/lunchbox.sh' # vi aliases
 
 # Shortcuts
