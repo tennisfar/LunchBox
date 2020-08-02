@@ -19,7 +19,7 @@ fi
 
 # LUNCHBOX
 alias box="cd $LUNCHBOX"
-alias br="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded" # Update everything
+alias br="source $LUNCHBOX/lunchbox.sh ; brs; echo --- reloaded" # Update everything
 alias brp='box && git pull && cd -'
 brp # update lunchbox, also to avoid conflicts when running brs
 
