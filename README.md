@@ -1,7 +1,7 @@
 # Lunchbox
 
-In your `.bash_profile`, source your `.lunchbox` file, e.g.:
+Fix the paths in `lunchbox.sh`. Then, in your `.bash_profile`, source the `lunchbox.sh` file, e.g.:
 
 ```bash
-source /c/Projects/rep/Lunchbox/DS/lunchbox.sh
+source /Users/mlp/Lunchbox/lunchbox.sh
 ```
