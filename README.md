@@ -11,4 +11,3 @@ or (Windows):
 ```bash
 source /c/Projects/rep/Lunchbox/lunchbox.sh
 ```
-xxx

@@ -21,19 +21,8 @@ fi
 # LUNCHBOX
 alias box="cd $LUNCHBOX"
 alias br="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded" # Update everything
-alias brp='box && git pull && cd - ; echo --- lunchbox up to date'
+alias brp='box && git pull && cd -'
 brp # update lunchbox, also to avoid conflicts when running brs
-
-alias boxbackup='boxbackup'
-boxbackup() {
-	if [[ $(uname -s) != Darwin ]] 
-  then
-    echo --- backup windows
-    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
-  else 
-    echo --- backup osx
-  fi
-}
 
 alias brs='brs'
 brs() {
