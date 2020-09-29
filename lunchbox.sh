@@ -43,8 +43,7 @@ brs() {
   fi
 
   git add -A
-  git commit -m "brs updates"
-  c
+  git commit -m "brs updates" > null
   gitadded
   git push
   cd - > null
