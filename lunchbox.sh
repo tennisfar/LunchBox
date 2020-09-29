@@ -46,7 +46,7 @@ brs() {
   git commit -m "brs updates" > null
   gitadded
   git push
-  cd - > null
+  cd -
 }
 
 # Quick edit this page
