@@ -47,7 +47,7 @@ brs() {
   c
   gitadded
   git push
-  cd -
+  cd - > null
 }
 
 # Quick edit this page
