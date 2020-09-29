@@ -75,10 +75,6 @@ alias gitfix='git gc --prune=now'
 alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 
-alias npmglob='npm list -g --depth=0'
-alias killnode='taskkill -F -IM node.exe'
-alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
-
 
 
 ### DOCKER
@@ -129,6 +125,9 @@ alias breakpoints-to-file="c;ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../breakp
 
 
 ### OTHER
+alias npmglob='npm list -g --depth=0'
+alias killnode='taskkill -F -IM node.exe'
+alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 alias sitetail='node /c/Projects/sitecoretail/index.js'
 alias jira='node c:/Projects/jira-cli/create-issue.js'
 alias is='iisreset'
