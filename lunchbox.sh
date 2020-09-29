@@ -37,7 +37,7 @@ brs() {
 
   if [[ $(uname -s) != Darwin ]]; then
     echo --- backup windows
-    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
+    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json > null
   else
     echo --- backup osx
   fi
