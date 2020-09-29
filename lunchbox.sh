@@ -26,7 +26,7 @@ alias box="cd $LUNCHBOX"
 alias br="source $LUNCHBOX/lunchbox.sh ; brs; echo --- reloaded" # Update everything
 
 # Update Lunchbox with latest from Git repository
-alias brp='box && git pull > null && cd - > null'
+alias brp='box && git pull && cd -'
 # Update when terminal opens
 brp
 
@@ -37,13 +37,13 @@ brs() {
 
   if [[ $(uname -s) != Darwin ]]; then
     echo --- backup windows
-    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json > null
+    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
   else
     echo --- backup osx
   fi
 
   git add -A
-  git commit -m "brs updates" > null
+  git commit -m "brs updates"
   gitadded
   git push
   cd -
