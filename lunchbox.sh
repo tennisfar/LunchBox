@@ -26,7 +26,7 @@ alias box="cd $LUNCHBOX"
 alias br="source $LUNCHBOX/lunchbox.sh ; brs; echo --- reloaded" # Update everything
 
 # Update Lunchbox with latest from Git repository
-alias brp='box && git pull && cd -'
+alias brp='box && git pull > null && cd - > null'
 # Update when terminal opens
 brp
 
