@@ -1,5 +1,5 @@
 # Default OSX paths
-LUNCHBOX="/Users/mlp/Lunchbox"
+LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 REP="/Users/mlp/_rep"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
@@ -23,7 +23,6 @@ fi
 
 ### LUNCHBOX
 alias box="cd $LUNCHBOX"
-alias br="source $LUNCHBOX/lunchbox.sh ; brs; echo --- reloaded" # Update everything
 
 # Update Lunchbox with latest from Git repository
 alias brp='box && git pull && cd -'
@@ -31,8 +30,7 @@ alias brp='box && git pull && cd -'
 brp
 
 # Backup Lunchbox and other files
-alias brs='brs'
-brs() {
+fn_brs() {
   box
 
   if [[ $(uname -s) != Darwin ]]; then
@@ -48,6 +46,8 @@ brs() {
   git push
   cd -
 }
+alias brs='fn_brs'
+alias br="source $LUNCHBOX/lunchbox.sh ; fn_brs; echo --- reloaded" # Update everything
 
 # Quick edit this page
 alias vial='vi $LUNCHBOX/lunchbox.sh'
