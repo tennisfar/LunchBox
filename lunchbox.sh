@@ -20,6 +20,11 @@ if [[ $(uname -s) != Darwin ]]; then # Windows
 else
   alias ll='ls -lhF'
   alias ls='ls -hF1'
+  alias brewuninstall='brew uninstall $1'
+  alias brewupdate='brew update'
+  alias brewupgrade='brew upgrade'
+  alias brewcleanup='brew cleanup'
+  alias brewdoctor='brew doctor'
 fi
 
 
