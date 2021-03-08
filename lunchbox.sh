@@ -110,7 +110,7 @@ gitRel() {
 alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
   git fetch
-  'git log origin/release/DS-' . $1 . '.. --oneline --no-merges --author=ekmlpe'
+  git log origin/release/DS-$1.. '--oneline --no-merges --author=ekmlpe'
 }
 
 # Check out pam-n-sub
