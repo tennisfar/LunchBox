@@ -111,7 +111,7 @@ alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
   git fetch
   $temp='--oneline --no-merges --author=ekmlpe'
-  git log origin/release/DS-$1.. $temp
+  git log origin/release/DS-$1.. ${temp}
 }
 
 alias gittest='git log origin/release/DS-' . $1 . '.. --oneline --no-merges --author=ekmlpe'
