@@ -107,6 +107,12 @@ gitRel() {
   git merge origin/release/DS-$1
 }
 
+alias gitcomparerel='gitCompareRel'
+gitCompareRel() {
+  git fetch
+  'git log origin/release/DS-' . $1 . '.. --oneline --no-merges --author=ekmlpe'
+}
+
 # Check out pam-n-sub
 alias pns='fo pam-n-sub ; git pull'
 alias today='c;ds;echo " Since midnight:"; git log --committer=ekmlpe@danskespil.dk --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
