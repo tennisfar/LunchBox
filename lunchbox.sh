@@ -56,6 +56,7 @@ fn_brs() {
 }
 alias brs='fn_brs'
 alias br="source $LUNCHBOX/lunchbox.sh ; fn_brs; echo --- reloaded" # Update everything
+alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update everything
 
 # Quick edit this page
 alias vial='vi $LUNCHBOX/lunchbox.sh'
@@ -111,7 +112,7 @@ alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
   # git fetch
   $temp='--oneline --no-merges --author=ekmlpe'
-  git log origin/release/DS-"$1".. "--oneline --no-merges --author=ekmlpe"
+  "git log origin/release/DS-$1.. --oneline --no-merges --author=ekmlpe"
 }
 
 alias gittest='git log origin/release/DS-' . $1 . '.. --oneline --no-merges --author=ekmlpe'
