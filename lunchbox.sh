@@ -114,7 +114,7 @@ gitCompareRel() {
   git log origin/release/DS-$1.. $temp
 }
 
-alias gittest='git log origin/release/DS-$1.. --oneline --no-merges --author=ekmlpe'
+alias gittest='git log origin/release/DS-' . $1 . '.. --oneline --no-merges --author=ekmlpe'
 alias xxx='echo $0 $1 $2'
 
 # Check out pam-n-sub
