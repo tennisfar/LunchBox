@@ -118,6 +118,12 @@
     },
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "browser-preview.startUrl": "http://localhost:3000/",
+    "browser-preview.chromeExecutable": "‪C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    "settingsSync.ignoredExtensions": [
+    
+    ],
+    "workbench.colorTheme": "Default Light+"
 
 }
