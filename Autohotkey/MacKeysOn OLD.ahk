@@ -3,6 +3,16 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+ 
+CapsLock::
+	run, C:\Projects\rep\LunchBox\Autohotkey\MacKeysOff.ahk
+	SoundPlay, %A_WinDir%\media\Speech Off.wav
+	TrayTip, , Mac Off
+	Suspend, On
+    Sleep 800
+    ExitApp
+    return
+    return
 
 ; Test hotkey:
 KeyHistory
@@ -58,12 +68,12 @@ F12::SendInput {Volume_Up}
 ;Lwin & Right::Send, !{Right}
 
 ; Eject Key
-;F20::SendInput {Insert} ; F20 doesn't show up on AHK anymore, see #3
+F20::Send {Delete} ; F20 doesn't show up on AHK anymore, see #3
 
 ; F13-15, standard windows mapping
-F13::SendInput {PrintScreen}
-F14::SendInput {ScrollLock}
-F15::SendInput {Pause}
+;F13::SendInput {PrintScreen}
+;F14::SendInput {ScrollLock}
+;F15::SendInput {Pause}
 
 ;F16-19 custom app launchers, see http://www.autohotkey.com/docs/Tutorial.htm for usage info
 F16::Run https://jira.danskespil.dk/secure/RapidBoard.jspa?rapidView=256&projectKey=IU&quickFilter=921
