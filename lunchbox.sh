@@ -137,7 +137,7 @@ alias gw-bingo='gulp && gulp watch --theme Bingo'
 alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
-alias gitem2021='git pull origin feature/IU-15932-em-content-hub-v2'
+alias gitem2021='git fetch && git pull origin feature/IU-15932-em-content-hub-v2'
 
 # Find breakpoints in DS
 alias breakpoints="grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/DanskeSpil/"
