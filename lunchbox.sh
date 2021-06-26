@@ -26,6 +26,7 @@ else
   alias brewupgrade='brew upgrade'
   alias brewcleanup='brew cleanup'
   alias brewdoctor='brew doctor'
+  touch ~.secret/environment-variables.sh
 fi
 
 
