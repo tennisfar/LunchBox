@@ -27,6 +27,7 @@ else
   alias brewcleanup='brew cleanup'
   alias brewdoctor='brew doctor'
   touch $LUNCHBOX/.Secret/.env
+
 fi
 
 
