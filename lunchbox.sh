@@ -26,7 +26,7 @@ else
   alias brewupgrade='brew upgrade'
   alias brewcleanup='brew cleanup'
   alias brewdoctor='brew doctor'
-  touch $LUNCHBOX/.Secret/environment-variables.sh
+  $LUNCHBOX/.Secret/environment-variables.sh
 fi
 
 
