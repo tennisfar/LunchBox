@@ -100,6 +100,9 @@ alias ds='cd $PATH_DS'
 alias dlo='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dlo && ds'
 alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dli && ds && git checkout -- Website/Components/DanskeSpil/Framework/PlayerAccountManagement/Include/zzz.DanskeSpil.Framework.PlayerAccountManagement_local.config'
 
+# DS Compare screenshots
+alias compare='ds && .. && cd ds-compare-screenshots && npm start'
+
 # merge latest updates from pam-n-sub into current branch
 alias gitpam='git fetch && git merge origin/pam-n-sub'
 
