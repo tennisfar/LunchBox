@@ -102,6 +102,7 @@ alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 
 
 # DS Compare screenshots
 alias compare='ds && .. && cd ds-compare-screenshots && npm start'
+alias xxx='cd ./output && explorer .'
 
 # merge latest updates from pam-n-sub into current branch
 alias gitpam='git fetch && git merge origin/pam-n-sub'
