@@ -100,6 +100,10 @@ alias ds='cd $PATH_DS'
 alias dlo='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dlo && ds'
 alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dli && ds && git checkout -- Website/Components/DanskeSpil/Framework/PlayerAccountManagement/Include/zzz.DanskeSpil.Framework.PlayerAccountManagement_local.config'
 
+# Run today
+alias runtoday01='cd /c/Projects/ds/ds-e2e && npm run test:develop:components:dlo'
+alias runtoday='runtoday01'
+
 # DS Compare screenshots
 alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output && explorer .'
 
