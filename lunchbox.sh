@@ -117,6 +117,8 @@ gitRel() {
   git merge origin/release/DS-$1
 }
 
+alias ejp='git fetch && git merge origin/feature/EurojackpotVersion2'
+
 alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
   git fetch
