@@ -18,6 +18,7 @@ if [[ $(uname -s) != Darwin ]]; then # Windows
   export PATH="$HOME/.windows-build-tools-python27:$PATH"
   export PATH="/c/Program Files/KDiff3:$PATH"
   export PATH="/c/Webdriver:$PATH"
+  export PATH="$HOME/.nvm:$PATH"
 else
   alias ll='ls -lhF'
   alias ls='ls -hF1'
