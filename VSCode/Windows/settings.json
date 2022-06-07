@@ -124,6 +124,9 @@
     "settingsSync.ignoredExtensions": [
     
     ],
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "Default Light+",
+    "[handlebars]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 
 }
