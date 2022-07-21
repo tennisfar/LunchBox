@@ -111,6 +111,7 @@ alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output
 # merge latest updates from pam-n-sub into current branch
 alias gitpam='git fetch && git merge origin/pam-n-sub'
 alias gittc='git fetch && git merge origin/master'
+alias gitfp2='git fetch && git merge origin/feature/FP-2'
 
 # merge latest updates from specific release branch into current branch
 alias gitrel='gitRel'
