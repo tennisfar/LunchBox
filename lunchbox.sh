@@ -139,6 +139,7 @@ gitCompareWith() {
 alias pns='fo pam-n-sub ; git pull'
 alias today='c;ds;echo " Since midnight:"; git log --committer=ekmlpe@danskespil.dk --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
 alias yesterday='c;ds;echo " Since early morning yesterday:"; git log --committer=ekmlpe@danskespil.dk --since="yesterday" --until=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
+alias thisweek='c;ds;echo " Since early morning yesterday:"; git log --committer=ekmlpe@danskespil.dk --since="yesterday" --until=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
 alias gitup='git fetch origin ; git branch -v -a'
 alias gitlatestrels='git fetch --dry-run --quiet && git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5'
