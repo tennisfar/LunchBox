@@ -136,7 +136,7 @@ gitCompareWith() {
 
 
 # Hours
-alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s" ; echo ; cd-'
+alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s" ; echo ; cd -'
 alias hours='timelog'
 
 # Check out pam-n-sub
