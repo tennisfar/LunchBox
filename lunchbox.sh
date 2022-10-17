@@ -61,6 +61,13 @@ alias brs='fn_brs'
 alias br="source $LUNCHBOX/lunchbox.sh ; fn_brs; echo --- reloaded" # Update everything
 alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update everything
 
+# Update Github Assets
+up_ass() {
+  cd /c/Projects/rep/assets;
+}
+
+alias upass='up_ass'
+
 # Quick edit this page
 alias vial='vi $LUNCHBOX/lunchbox.sh'
 
