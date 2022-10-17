@@ -52,7 +52,7 @@ fn_brs() {
   fi
 
   git add -A
-  git commit -m "brs updates"
+  git commit -m ":package:"
   gitadded
   git push
   cd -
@@ -65,7 +65,7 @@ alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update every
 up_ass() {
   cd /c/Projects/rep/assets
   git add -A
-  git commit -m "update assets"
+  git commit -m ":package:"
   gitadded
   git push
   cd -
