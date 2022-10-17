@@ -63,7 +63,12 @@ alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update every
 
 # Update Github Assets
 up_ass() {
-  cd /c/Projects/rep/assets;
+  cd /c/Projects/rep/assets
+  git add -A
+  git commit -m "update assets"
+  gitadded
+  git push
+  cd-
 }
 
 alias upass='up_ass'
