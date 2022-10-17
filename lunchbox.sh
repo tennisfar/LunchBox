@@ -68,7 +68,7 @@ up_ass() {
   git commit -m "update assets"
   gitadded
   git push
-  cd-
+  cd -
 }
 
 alias upass='up_ass'
