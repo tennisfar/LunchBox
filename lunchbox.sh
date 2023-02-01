@@ -146,7 +146,7 @@ gitCompareWith() {
   git log --oneline --no-merges --author=ekmlpe origin/$1..$2
 }
 
-alias bygds='ds; rm Website/obj -r ; cd -'
+alias bygds='ds; rm Website/obj -r ; cd - ; echo Removed obj folder'
 
 
 # Hours
