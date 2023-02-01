@@ -146,6 +146,8 @@ gitCompareWith() {
   git log --oneline --no-merges --author=ekmlpe origin/$1..$2
 }
 
+alias bygds='ds; rm Website/obj -r ; cd -'
+
 
 # Hours
 alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s" ; echo ; cd -'
