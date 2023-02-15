@@ -98,7 +98,7 @@ alias gitfix='git gc --prune=now'
 # Show files committed
 alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
-
+alias gitpu='git add -A && git commit -m ":package:" && git push'
 
 
 ### DOCKER
