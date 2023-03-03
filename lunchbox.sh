@@ -66,7 +66,7 @@ up_ass() {
   cd /c/Projects/rep/assets
   git add -A
   git commit -m ":package:"
-  gitadded
+  git show --stat --oneline HEAD
   git push
   cd -
 }
