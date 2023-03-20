@@ -85,7 +85,12 @@ alias rep="cd $REP"
 
 
 ### BROWSERSYNC
-alias bs='browser-sync start --proxy "https://web.develop.danskespil.dk" --files "./Website/BuildArtifacts/Components/DanskeSpil/**/*.css" "./Website/BuildArtifacts/Components/DanskeSpil/**/*.js" --no-notify --host "web.develop.danskespil.dk'
+
+brows_sync() {
+  ds
+  browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' --no-notify --host 'web.develop.danskespil.dk'
+}
+alias bs='brows_sync'
 
 
 ### GIT
