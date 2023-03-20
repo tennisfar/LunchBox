@@ -84,11 +84,14 @@ alias findinfiles='find . -type f -print | xargs grep $1'
 alias rep="cd $REP"
 
 
+### BROWSERSYNC
+alias bs=""
+
 
 ### GIT
 # Update git remote to GitLab
 alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/hpm/REPOSITORY.git"
-alias fo='gitFetchAndCheckoutBranch'
+alias fo='ds && browser-sync start --proxy "https://web.develop.danskespil.dk" --files "./Website/BuildArtifacts/Components/DanskeSpil/**/*.css" "./Website/BuildArtifacts/Components/DanskeSpil/**/*.js" --no-notify --host "web.develop.danskespil.dk'
 gitFetchAndCheckoutBranch() {
   git fetch
   git checkout $1
