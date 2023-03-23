@@ -100,10 +100,12 @@ alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/h
 alias fo='gitFetchAndCheckoutBranch'
 
 alias fo='ds && browser-sync start --proxy "https://web.develop.danskespil.dk" --files "./Website/BuildArtifacts/Components/DanskeSpil/**/*.css" "./Website/BuildArtifacts/Components/DanskeSpil/**/*.js" --no-notify --host "web.develop.danskespil.dk'
+
 gitFetchAndCheckoutBranch() {
   git fetch
   git checkout $1
 }
+
 alias gitrecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
 alias gitfix='git gc --prune=now'
 # Show files committed
