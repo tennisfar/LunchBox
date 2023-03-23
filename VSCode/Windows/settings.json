@@ -1,5 +1,7 @@
 {
   "workbench.iconTheme": "vscode-icons",
   "win-ca.inject": "append",
-  "tabnine.experimentalAutoImports": true
+  "tabnine.experimentalAutoImports": true,
+  "editor.inlineSuggest.enabled": true,
+  "workbench.colorTheme": "Default Dark+ Experimental"
 }

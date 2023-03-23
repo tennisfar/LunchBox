@@ -89,7 +89,7 @@ alias rep="cd $REP"
 brows_sync() {
   # https://browsersync.io/docs/command-line
   ds
-  browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' --no-notify --host 'web.develop.danskespil.dk' --open external --no-ghost-mode --no-ui
+  browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --host 'web.develop.danskespil.dk' --open external --no-ghost-mode --no-ui
 }
 alias bs='brows_sync'
 
