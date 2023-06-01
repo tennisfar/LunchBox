@@ -195,7 +195,7 @@ alias killnode='taskkill -F -IM node.exe'
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 alias sitetail='node /c/Projects/ds/SiteTail/index.js'
 alias jira='node c:/Projects/jira-cli/create-issue.js'
-alias is='iisreset /timeout:0'
+alias is='iisreset /timeout:0 ; iisreset'
 
 
 
