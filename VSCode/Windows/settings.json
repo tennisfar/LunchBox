@@ -3,5 +3,6 @@
   "win-ca.inject": "append",
   "tabnine.experimentalAutoImports": true,
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Default Dark+ Experimental"
+  "workbench.colorTheme": "Default Dark+ Experimental",
+  "vsicons.dontShowNewVersionMessage": true
 }
