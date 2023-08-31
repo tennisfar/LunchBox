@@ -144,6 +144,14 @@ gitRel() {
   git merge origin/release/DS-$1
 }
 
+
+# rm -rf bash command
+rmfFn() {
+  rm -rf $1
+}
+alias rmf='rmfFn'
+
+
 alias ejp='git fetch && git merge origin/feature/EurojackpotVersion2'
 
 alias gitcomparerel='gitCompareRel'
