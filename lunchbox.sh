@@ -132,7 +132,6 @@ alias runtoday='runtoday01'
 alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output && explorer .'
 
 # merge latest updates from pam-n-sub into current branch
-alias gitpamXXX='git fetch && git merge origin/pam-n-sub'
 alias gitmain='git fetch && git merge origin/main'
 alias gittc='git fetch && git merge origin/master'
 alias gitfp2='git fetch && git merge origin/feature/FP-2'
