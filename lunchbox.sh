@@ -190,10 +190,10 @@ alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 alias gitem2021='git fetch && git pull origin feature/IU-15932-em-content-hub-v3'
 
 # Find breakpoints in DS
-alias breakpoints="grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/DanskeSpil/"
+alias breakpoints="c; ds; grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/DanskeSpil/"
 
 # Find breakpoints in DS, save to file
-alias breakpoints-to-file="c;ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../breakpointvalues.txt"
+alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../breakpointvalues.txt"
 
 
 
@@ -215,3 +215,5 @@ alias gitrecap='git log --all --oneline --no-merges --author=ekmlpe@danskespil.d
 alias gittoday='git log --since=00:00:00 --all --no-merges --oneline --author=ekmlpe@danskespil.dk'
 alias gitwhattoday='git shortlog --all --no-merges --since="00:00:00"'
 alias gitbranchlastupdate='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
+
+
