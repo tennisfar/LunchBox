@@ -111,7 +111,26 @@ alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 alias gitpu='git add -A && git commit -m ":package:" && git push'
 
-alias cherryPickToNewBranch='function _cherryPickToNewBranch() { echo "Fetching the latest state of your remote repository" && git fetch origin && echo "Getting the name of the current branch" && current_branch=$(git branch --show-current) && echo "Creating a new branch $1 from origin/main without checking it out" && git branch $1 origin/main && echo "Getting the SHA of the last commit on the current branch" && last_commit=$(git log --format="%H" -n 1 $current_branch) && echo "Cherry-picking the commit into $1" && git checkout $1 && git cherry-pick $last_commit && echo "Pushing the new branch $1 to the remote repository" && git push origin $1 && git checkout $current_branch; unset -f _cherryPickToNewBranch; }; _cherryPickToNewBranch'
+function cherryPickToNewBranch() {
+    # $1 is the name of the new branch
+    # $2 is the SHA of the commit to cherry-pick
+
+    # Fetch the latest state of your remote repository
+    echo "Fetching the latest state of your remote repository"
+    git fetch origin
+
+    # Create a new branch from origin/main without checking it out
+    echo "Creating a new branch $1 from origin/main without checking it out"
+    git branch $1 origin/main
+
+    # Cherry-pick the commit into the new branch
+    echo "Cherry-picking the commit into $1"
+    git rev-parse $2 | git commit-tree -p $1 -F - | xargs git update-ref refs/heads/$1
+
+    # Push the new branch to the remote repository
+    echo "Pushing the new branch $1 to the remote repository"
+    git push origin $1
+}
 
 
 
