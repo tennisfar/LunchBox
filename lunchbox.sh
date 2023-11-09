@@ -111,6 +111,8 @@ alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 alias gitpu='git add -A && git commit -m ":package:" && git push'
 
+alias cherryPickToNewBranch='function _cherryPickToNewBranch() { git fetch origin && current_branch=$(git branch --show-current) && git branch $1 origin/main && last_commit=$(git log --format="%H" -n 1 $current_branch) && git cherry-pick $last_commit --mainline 1 --no-commit --onto $1 && git push origin $1; unset -f _cherryPickToNewBranch; }; _cherryPickToNewBranch'
+
 
 ### DOCKER
 alias deletealldockerimages='docker rmi $(docker images -q)'
