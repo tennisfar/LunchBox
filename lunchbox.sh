@@ -132,6 +132,8 @@ function cherryPickToNewBranchOLD() {
     git push origin $1
 }
 
+
+
 function cherryPickToNewBranch() {
     # $1 is the name of the new branch
     # $2 is the SHA of the commit to cherry-pick
@@ -139,6 +141,12 @@ function cherryPickToNewBranch() {
     # Fetch the latest state of your remote repository
     echo "Fetching the latest state of your remote repository"
     git fetch origin
+
+    # Check if the branch already exists
+    if git show-ref --verify --quiet refs/heads/$1; then
+        echo "Branch $1 already exists, deleting it first"
+        git branch -D $1
+    fi
 
     # Create a new branch from origin/main and check it out
     echo "Creating and checking out a new branch $1 from origin/main"
@@ -152,6 +160,7 @@ function cherryPickToNewBranch() {
     echo "Pushing the new branch $1 to the remote repository"
     git push origin $1
 }
+
 
 
 
