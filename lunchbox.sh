@@ -115,6 +115,10 @@ function cherryPickToNewBranch() {
     # $1 is the name of the new branch
     # $2 is the SHA of the commit to cherry-pick
 
+    # Stash any uncommitted changes
+    echo "Stashing any uncommitted changes"
+    git stash
+
     # Fetch the latest state of your remote repository
     echo "Fetching the latest state of your remote repository"
     git fetch origin
@@ -130,6 +134,10 @@ function cherryPickToNewBranch() {
     # Push the new branch to the remote repository
     echo "Pushing the new branch $1 to the remote repository"
     git push origin $1
+
+    # Unstash the changes
+    echo "Unstashing any previously stashed changes"
+    git stash pop
 }
 
 
