@@ -111,7 +111,9 @@ alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 alias gitpu='git add -A && git commit -m ":package:" && git push'
 
-alias cherryPickToNewBranch='function _cherryPickToNewBranch() { git fetch origin && current_branch=$(git branch --show-current) && git branch $1 origin/main && last_commit=$(git log --format="%H" -n 1 $current_branch) && git cherry-pick $last_commit --mainline 1 --no-commit --onto $1 && git push origin $1; unset -f _cherryPickToNewBranch; }; _cherryPickToNewBranch'
+
+alias cherryPickToNewBranch='function _cherryPickToNewBranch() { echo "Fetching the latest state of your remote repository" && git fetch origin && echo "Getting the name of the current branch" && current_branch=$(git branch --show-current) && echo "Creating a new branch $1 from origin/main without checking it out" && git branch $1 origin/main && echo "Getting the SHA of the last commit on the current branch" && last_commit=$(git log --format="%H" -n 1 $current_branch) && echo "Cherry-picking the commit into $1" && git cherry-pick $last_commit --mainline 1 --no-commit --onto $1 && echo "Pushing the new branch $1 to the remote repository" && git push origin $1; unset -f _cherryPickToNewBranch; }; _cherryPickToNewBranch'
+
 
 
 ### DOCKER
