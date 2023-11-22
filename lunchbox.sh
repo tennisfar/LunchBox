@@ -249,16 +249,16 @@ alias breakpoints="c; ds; grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/Dan
 # Find breakpoints in DS, save to file
 alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../breakpointvalues.txt"
 
-
-
-### OTHER
 npmglob() {
   echo; echo "Globally installed npm packages:"; echo;
   npm list -g --depth=0; 
 }
 
 alias killnode='taskkill -F -IM node.exe'
-alias pretty='npx prettier . --write'
+pretty() {
+  echo "Pretty!";
+  npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc;   
+}
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc . ; pretty'
 alias sitetail='node /c/Projects/rep/SiteTail/index.js'
 alias is='iisreset /timeout:0 > null ; iisreset'
