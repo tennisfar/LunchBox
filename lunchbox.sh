@@ -212,8 +212,7 @@ gitCompareWith() {
 
 alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 
-
-# Hours
+# Displays git log for the specified committer over the past two weeks
 hours() {
   ds;
   echo " Hours:"; 
@@ -222,7 +221,7 @@ hours() {
   cd -;
 }
 
-# Today
+# Displays git log for the specified committer since midnight
 alias today='f() {
   ds;
   echo " Since midnight:";
@@ -253,7 +252,11 @@ alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../break
 
 
 ### OTHER
-alias npmglob='npm list -g --depth=0'
+npmglobal() {
+  echo "Xxx";
+  npm list -g --depth=0; 
+}
+
 alias killnode='taskkill -F -IM node.exe'
 alias pretty='npx prettier . --write'
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc . ; pretty'
