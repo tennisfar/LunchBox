@@ -227,23 +227,22 @@ hoursFn() {
   echo;
   cd -;
 }
-alias hours='hoursFn'
+alias hours='f() {
+                ds;
+                echo " Hours:"; 
+                git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
+                echo;
+                cd -;
+              }; f'
 
 # Today
-todayFn() {
+alias today='f() {
   ds;
   echo " Since midnight:";
   git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
   echo;
   cd -;
-}
-alias today='f() {
-                ds;
-                echo " Since midnight:";
-                git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
-                echo;
-                cd -;
-              }; f'
+}; f'
 
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
 alias gitup='git fetch origin ; git branch -v -a'
