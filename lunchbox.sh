@@ -92,15 +92,21 @@ brows_sync() {
   cd $PATH_DS
   browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui
 }
-alias bs='brows_sync'
+alias bsX='brows_sync'
+
+bs() {
+# https://browsersync.io/docs/command-line
+  cd $PATH_DS
+  browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui  
+}
 
 
 ### GIT
 # Update git remote to GitLab
-alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/hpm/REPOSITORY.git"
-alias fo='gitFetchAndCheckoutBranch'
+alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/tennisfar/REPOSITORY.git"
 
-gitFetchAndCheckoutBranch() {
+# Git fetch and checkout branch. Example: fo origin/main
+fo() {
   git fetch
   git checkout $1
 }
@@ -112,64 +118,9 @@ alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 alias gitpu='git add -A && git commit -m ":package:" && git push'
 
-function cherryPickToNewBranchOLD() {
-    # $1 is the name of the new branch
-    # $2 is the SHA of the commit to cherry-pick
-
-    # Fetch the latest state of your remote repository
-    echo "Fetching the latest state of your remote repository"
-    git fetch origin
-
-    # Create a new branch from origin/main without checking it out
-    echo "Creating a new branch $1 from origin/main without checking it out"
-    git branch $1 origin/main
-
-    # Cherry-pick the commit into the new branch
-    echo "Cherry-picking the commit into $1"
-    git rev-parse $2 | git commit-tree -p $1 -F - | xargs git update-ref refs/heads/$1
-
-    # Push the new branch to the remote repository
-    echo "Pushing the new branch $1 to the remote repository"
-    git push origin $1
-}
-
-
-
-function cherryPickToNewBranch() {
-    # $1 is the name of the new branch
-    # $2 is the SHA of the commit to cherry-pick
-
-    # Fetch the latest state of your remote repository
-    echo "Fetching the latest state of your remote repository"
-    git fetch origin
-
-    # Check if the branch already exists
-    if git show-ref --verify --quiet refs/heads/$1; then
-        echo "Branch $1 already exists, deleting it first"
-        git branch -D $1
-    fi
-
-    # Create a new branch from origin/main and check it out
-    echo "Creating and checking out a new branch $1 from origin/main"
-    git checkout -b $1 origin/main
-
-    # Cherry-pick the commit into the new branch
-    echo "Cherry-picking the commit into $1"
-    git cherry-pick $2
-
-    # Push the new branch to the remote repository
-    echo "Pushing the new branch $1 to the remote repository"
-    git push origin $1
-}
-
-
-
-
 ### DOCKER
 alias deletealldockerimages='docker rmi $(docker images -q)'
 alias locserver='python -m SimpleHTTPServer 8005'
-
-
 
 ### DS
 PATH_DS='/c/Projects/ds/develop'
@@ -258,12 +209,18 @@ killnode() {
   taskkill -F -IM node.exe 
 }
 
+# Formats all files in the current directory using Prettier
 pretty() { 
   npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc
 }
 
+# Add Prettier config file to current directory
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
+
+# Execute SiteTail
 alias sitetail='node /c/Projects/rep/SiteTail/index.js'
+
+# IIS reset, the fast way
 alias is='iisreset /timeout:0 > null ; iisreset'
 
 
