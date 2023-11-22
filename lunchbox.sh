@@ -226,9 +226,6 @@ alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --sin
 alias hours='timelog'
 
 # Check out
-alias today='ds;echo " Since midnight:"; git log --committer=ekmlpe@danskespil.dk --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
-alias today2='ds;echo " Since midnight:"; git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
-
 todayFn() {
   ds;
   echo " Since midnight:";
@@ -236,14 +233,7 @@ todayFn() {
   echo;
   cd -;
 }
-
-alias xxx='f() {
-             ds;
-             echo " Since midnight:";
-             git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
-             echo;
-             cd -;
-           }'
+alias today='todayFn'
 
 alias yesterday='ds;echo " Since early morning yesterday:"; git log --committer=ekmlpe@danskespil.dk --since="yesterday" --until=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
