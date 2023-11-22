@@ -225,11 +225,10 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 hoursFn() {
   ds;
   echo " Hours:"; 
-  git log --committer=$EMAIL --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
+  git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
   echo;
   cd -;
 }
-alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s" ; echo ; cd -'
 alias hours='hoursFn'
 
 # Check out
