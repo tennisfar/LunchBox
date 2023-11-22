@@ -46,10 +46,11 @@ fn_brs() {
   box
 
   if [[ $(uname -s) != Darwin ]]; then
-    echo --- backup windows
+    # backup windows
     cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
   else
-    echo --- backup osx
+    # backup osx
+    true
   fi
 
   git add -A > /dev/null
