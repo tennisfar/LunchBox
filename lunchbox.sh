@@ -71,15 +71,15 @@ upass() {
   cd -
 }
 
-# Quick edit this page (vial: VIm ALiases)
-alias vial='vi $LUNCHBOX/lunchbox.sh'
-
 # Handy shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
 alias ds='cd $PATH_DS'
 alias rep="cd $REP"
+
+# Quick edit this page (vial: VIm ALiases)
+alias vial='vi $LUNCHBOX/lunchbox.sh'
 
 # Search for a specified string in all files within the current directory. Example: findinfiles hello
 alias findinfiles='find . -type f -print | xargs grep $1'
@@ -92,18 +92,17 @@ bs() {
   browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui  
 }
 
-
-### GIT
-# Update git remote to GitLab
-alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/tennisfar/REPOSITORY.git"
-
 # Git fetch and checkout branch. Example: fo origin/main
 fo() {
   git fetch
   git checkout $1
 }
 
-alias gitrecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
+gitrecent() {
+  echo "Listing the 10 most recently updated local git branches:"
+  git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+}
+
 alias gitfix='git gc --prune=now'
 # Show files committed
 alias gitadded='git show --stat --oneline HEAD'
@@ -220,4 +219,6 @@ alias gittoday='git log --since=00:00:00 --all --no-merges --oneline --author=ek
 alias gitwhattoday='git shortlog --all --no-merges --since="00:00:00"'
 alias gitbranchlastupdate='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
 
+# Update git remote to GitLab
+alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/tennisfar/REPOSITORY.git"
 
