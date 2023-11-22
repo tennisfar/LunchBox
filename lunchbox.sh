@@ -175,7 +175,10 @@ today() {
   cd - > /dev/null || exit
 }
 
-alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
+#myremotebranches() {
+#  git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"
+#}
+
 alias gitup='git fetch origin ; git branch -v -a'
 
 # Fetches updates from the remote and lists the last 5 git release branches
