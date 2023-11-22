@@ -232,6 +232,9 @@ alias today2='ds;echo " Since midnight:"; git log --committer=$EMAIL --since=00:
 todayFn() {
   ds;
   echo " Since midnight:";
+  git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
+  echo;
+  cd -;
 }
 
 alias xxx='todayFn'
