@@ -88,7 +88,7 @@ alias findinfiles='find . -type f -print | xargs grep $1'
 # Reference: https://browsersync.io/docs/command-line
 bs() {
   cd $PATH_DS
-  echo "Open https://web.develop.danskespil.dk:3000"
+  echo "Open https://web.develop.danskespil.dk:3000"; echo;
   browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui  
 }
 
