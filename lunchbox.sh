@@ -37,7 +37,7 @@ fi
 alias box="cd $LUNCHBOX"
 
 # Update Lunchbox with latest from Git repository
-alias brp='box && git pull && cd -'
+alias brp='box && git fetch && git pull && cd -'
 # Update when terminal opens
 brp
 
