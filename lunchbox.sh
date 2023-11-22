@@ -186,15 +186,19 @@ alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output
 
 # merge latest updates from pam-n-sub into current branch
 alias gitmain='git fetch && git merge origin/main'
-alias gittc='git fetch && git merge origin/master'
-alias gitfp2='git fetch && git merge origin/feature/FP-2'
 
 # merge latest updates from specific release branch into current branch
 alias gitrel='gitRel'
 gitRel() {
-  git fetch
-  git merge origin/release/DS-$1
+  git fetch;
+  git merge origin/release/DS-$1;
 }
+
+alias gitrelX='f() {
+  git fetch;
+  git merge origin/release/DS-$1;
+}; f'
+
 
 
 # rm -rf bash command
@@ -220,20 +224,13 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 
 
 # Hours
-hoursFn() {
+alias hours='f() {
   ds;
   echo " Hours:"; 
   git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
   echo;
   cd -;
-}
-alias hours='f() {
-                ds;
-                echo " Hours:"; 
-                git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
-                echo;
-                cd -;
-              }; f'
+}; f'
 
 # Today
 alias today='f() {
