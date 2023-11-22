@@ -189,17 +189,15 @@ alias gitmain='git fetch && git merge origin/main'
 
 
 # merge latest updates from specific release branch into current branch
-alias gitrel='f() {
+gitrel() {
   git fetch;
-  git merge origin/release/DS-$1;
-}; f'
+  git merge origin/release/DS-"$1";
+}
 
 
 # rm -rf bash command
-alias rmf='f() { rm -rf $1 }; f'
-
-rmfx() {
-    rm -rf "$1"
+rmf() {
+  rm -rf "$1"
 }
 
 alias gitcomparerel='gitCompareRel'
