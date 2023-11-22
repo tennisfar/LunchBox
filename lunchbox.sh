@@ -70,13 +70,13 @@ br() {
   # Update Bash and repository
   source $LUNCHBOX/lunchbox.sh > /dev/null
   fn_brs
-  echo; echo --- Reloaded Bash, backed up Lunchbox
+  echo; echo --- Bash reloaded, Lunchbox changes saved to origin
 }
 
 brf() {
   # Update Bash, don't save changes to repository
   source $LUNCHBOX/lunchbox.sh > /dev/null
-  echo; echo --- Reloaded Bash  
+  echo; echo --- Bash reloaded  
 }
 
 # Update Github Assets
@@ -84,7 +84,7 @@ upass() {
   cd /c/Projects/rep/assets
   git add -A
   git commit -m ":package:"
-  git show --stat --oneline HEAD
+  gitadded
   git push
   cd - > /dev/null || exit
 }
