@@ -187,31 +187,24 @@ alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output
 # merge latest updates from pam-n-sub into current branch
 alias gitmain='git fetch && git merge origin/main'
 
-# merge latest updates from specific release branch into current branch
-alias gitrel='gitRel'
-gitRel() {
-  git fetch;
-  git merge origin/release/DS-$1;
-}
 
-alias gitrelX='f() {
+# merge latest updates from specific release branch into current branch
+alias gitrel='f() {
   git fetch;
   git merge origin/release/DS-$1;
 }; f'
 
 
-
 # rm -rf bash command
-rmfFn() {
-  rm -rf $1
-}
-alias rmf='rmfFn'
+alias rmf='f() {
+  rm -rf $1;
+}; f'
 
 
 alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
-  git fetch
-  git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..
+  git fetch;
+  git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..;
 }
 
 alias gitcomparewith='gitCompareWith'
