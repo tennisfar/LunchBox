@@ -62,7 +62,7 @@ alias br="source $LUNCHBOX/lunchbox.sh ; fn_brs; echo --- reloaded" # Update eve
 alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update everything
 
 # Update Github Assets
-up_ass() {
+upass() {
   cd /c/Projects/rep/assets
   git add -A
   git commit -m ":package:"
@@ -71,13 +71,14 @@ up_ass() {
   cd -
 }
 
-# Quick edit this page
+# Quick edit this page (vial: VIm ALiases)
 alias vial='vi $LUNCHBOX/lunchbox.sh'
 
-# Shortcuts
-alias c='clear'
+# Handy shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
+alias c='clear'
+alias ds='cd $PATH_DS'
 alias rep="cd $REP"
 
 # Search for a specified string in all files within the current directory. Example: findinfiles hello
@@ -113,21 +114,13 @@ alias deletealldockerimages='docker rmi $(docker images -q)'
 alias locserver='python -m SimpleHTTPServer 8005'
 
 ### DS
-alias ds='cd $PATH_DS'
 alias dlo='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dlo && ds'
 alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dli && ds && git checkout -- Website/Components/DanskeSpil/Framework/PlayerAccountManagement/Include/zzz.DanskeSpil.Framework.PlayerAccountManagement_local.config'
-
-# Run today
-alias runtoday01='cd /c/Projects/ds/ds-e2e && npm run test:develop:components:dlo'
-alias runtoday='runtoday01'
-
-# DS Compare screenshots
-alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output && explorer .'
 
 # Merge latest updates from main into current branch
 alias gitmain='git fetch && git merge origin/main'
 
-# Merge latest updates from specific release branch into current branch
+# Merge latest updates from specific release branch into current branch. Example: gitrel 250
 gitrel() {
   git fetch;
   git merge origin/release/DS-"$1";
@@ -140,12 +133,11 @@ rmf() {
 
 alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
-  git fetch;
-  git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..;
+  git fetch
+  git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..
 }
 
-alias gitcomparewith='gitCompareWith'
-gitCompareWith() {
+gitcomparewith() {
   git fetch
   git log --oneline --no-merges --author=ekmlpe origin/$1..$2
 }
@@ -154,20 +146,20 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 
 # Displays git log for the specified committer over the past two weeks
 hours() {
-  ds;
-  echo " Hours:"; 
-  git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
-  echo;
-  cd -;
+  ds
+  echo " Hours:" 
+  git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s"
+  echo
+  cd -
 }
 
 # Displays git log for the specified committer since midnight
 today() {
-  ds;
-  echo " Since midnight:";
-  git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
-  echo;
-  cd -;
+  ds
+  echo " Since midnight:"
+  git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s"
+  echo
+  cd -
 }
 
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
