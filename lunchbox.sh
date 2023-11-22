@@ -197,8 +197,10 @@ alias gitrel='f() {
 
 # rm -rf bash command
 alias rmf='f() { rm -rf $1 }; f'
-rmfx() { rm -rf $1 }
 
+rmfx() {
+    rm -rf "$1"
+}
 
 alias gitcomparerel='gitCompareRel'
 gitCompareRel() {
