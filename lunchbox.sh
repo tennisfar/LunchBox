@@ -56,7 +56,7 @@ fn_brs() {
   git commit -m ":package:"
   gitadded
   git push
-  cd -
+  cd - > /dev/null
 }
 alias brs='fn_brs'
 alias br="source $LUNCHBOX/lunchbox.sh > /dev/null ; fn_brs; echo --- reloaded" # Update everything
