@@ -84,10 +84,11 @@ alias rep="cd $REP"
 # Search for a specified string in all files within the current directory. Example: findinfiles hello
 alias findinfiles='find . -type f -print | xargs grep $1'
 
-# Starts BrowserSync to watch and reload files for specific paths, useful for live reloading during web development
+# Starts BrowserSync to watch and reload files for https://web.develop.danskespil.dk:3000, useful for live reloading during web development
 # Reference: https://browsersync.io/docs/command-line
 bs() {
   cd $PATH_DS
+  echo "Open https://web.develop.danskespil.dk:3000"
   browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui  
 }
 
@@ -165,6 +166,7 @@ today() {
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
 alias gitup='git fetch origin ; git branch -v -a'
 
+# Fetches updates from the remote and lists the last 5 git release branches
 gitreleases() {
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
@@ -208,8 +210,6 @@ alias sitetail='node /c/Projects/rep/SiteTail/index.js'
 
 # IIS reset, the fast way
 alias is='iisreset /timeout:0 > null ; iisreset'
-
-
 
 ### RANDOM
 # Utils from https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/
