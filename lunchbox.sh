@@ -253,7 +253,7 @@ alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../break
 alias npmglob='npm list -g --depth=0'
 alias killnode='taskkill -F -IM node.exe'
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
-alias pretty = 'npx prettier . --write'
+alias pretty='npx prettier . --write'
 alias sitetail='node /c/Projects/rep/SiteTail/index.js'
 alias jira='node c:/Projects/jira-cli/create-issue.js'
 alias is='iisreset /timeout:0 > null ; iisreset'
