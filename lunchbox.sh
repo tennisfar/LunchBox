@@ -1,7 +1,8 @@
 # Default OSX paths
 LUNCHBOX="/Users/mlp/_rep/Lunchbox"
-REP="/Users/mlp/_rep"
 EMAIL="ekmlpe@danskespil.dk"
+REP="/Users/mlp/_rep"
+PATH_DS='/c/Projects/ds/develop'
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
   # Overwrite default OSX paths
@@ -30,8 +31,6 @@ else
   alias brewdoctor='brew doctor'
   source $LUNCHBOX/.Secret/environment-variables.sh
 fi
-
-
 
 ### LUNCHBOX
 alias box="cd $LUNCHBOX"
@@ -72,8 +71,6 @@ up_ass() {
   cd -
 }
 
-alias upass='up_ass'
-
 # Quick edit this page
 alias vial='vi $LUNCHBOX/lunchbox.sh'
 
@@ -81,21 +78,14 @@ alias vial='vi $LUNCHBOX/lunchbox.sh'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias findinfiles='find . -type f -print | xargs grep $1'
 alias rep="cd $REP"
 
+# Search for a specified string in all files within the current directory. Example: findinfiles hello
+alias findinfiles='find . -type f -print | xargs grep $1'
 
-### BROWSERSYNC
-
-brows_sync() {
-  # https://browsersync.io/docs/command-line
-  cd $PATH_DS
-  browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui
-}
-alias bsX='brows_sync'
-
+# Starts BrowserSync to watch and reload files for specific paths, useful for live reloading during web development
+# Reference: https://browsersync.io/docs/command-line
 bs() {
-# https://browsersync.io/docs/command-line
   cd $PATH_DS
   browser-sync start --proxy 'https://web.develop.danskespil.dk' --files './Website/BuildArtifacts/Components/DanskeSpil/**/*.css' './Website/BuildArtifacts/Components/DanskeSpil/**/*.js' './Website/BuildArtifacts/Components/Shared/Framework/Ensighten/**/*.js' --no-notify --open external --no-ghost-mode --no-ui  
 }
@@ -123,7 +113,6 @@ alias deletealldockerimages='docker rmi $(docker images -q)'
 alias locserver='python -m SimpleHTTPServer 8005'
 
 ### DS
-PATH_DS='/c/Projects/ds/develop'
 alias ds='cd $PATH_DS'
 alias dlo='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dlo && ds'
 alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dli && ds && git checkout -- Website/Components/DanskeSpil/Framework/PlayerAccountManagement/Include/zzz.DanskeSpil.Framework.PlayerAccountManagement_local.config'
