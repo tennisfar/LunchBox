@@ -36,15 +36,15 @@ fi
 ### LUNCHBOX
 alias box="cd $LUNCHBOX"
 
-# Update Lunchbox with latest from Git repository
-brp() {
+# Synchronize Lunchbox with origin
+synclunchbox() {
   box 
   git fetch
-  git pull
-  cd - > /dev/null
+  git pull > /dev/null
+  cd - > /dev/null || exit
 }
-# Update when terminal opens
-brp
+# Run whenever a new terminal opens
+synclunchbox
 
 # Backup Lunchbox and other files
 fn_brs() {
@@ -62,7 +62,7 @@ fn_brs() {
   git commit -m ":package:" > /dev/null
   gitadded
   git push
-  cd - > /dev/null
+  cd - > /dev/null || exit
 }
 alias brs='fn_brs'
 
@@ -86,7 +86,7 @@ upass() {
   git commit -m ":package:"
   git show --stat --oneline HEAD
   git push
-  cd - > /dev/null
+  cd - > /dev/null || exit
 }
 
 # Handy shortcuts
@@ -100,7 +100,9 @@ alias rep="cd $REP"
 alias vial='vi $LUNCHBOX/lunchbox.sh'
 
 # Search for a specified string in all files within the current directory. Example: findinfiles hello
-alias findinfiles='find . -type f -print | xargs grep $1'
+findinfiles() {
+  find . -type f -print0 | xargs -0 grep -H "$1" | awk -F: '{print $1 "    " $2}'
+}
 
 # Starts BrowserSync to watch and reload files for https://web.develop.danskespil.dk:3000, useful for live reloading during web development
 # Reference: https://browsersync.io/docs/command-line
@@ -160,19 +162,17 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 # Displays git log for the specified committer over the past two weeks
 hours() {
   ds
-  echo " Hours:" 
+  echo; echo "Commits over the past two weeks:"; echo ---------------------------------
   git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s"
-  echo
-  cd -
+  cd - > /dev/null || exit
 }
 
 # Displays git log for the specified committer since midnight
 today() {
   ds
-  echo " Since midnight:"
+  echo; echo "Commits since midnight:"; echo -----------------------
   git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s"
-  echo
-  cd -
+  cd - > /dev/null || exit
 }
 
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
