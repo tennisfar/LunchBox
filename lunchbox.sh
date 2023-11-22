@@ -99,7 +99,7 @@ fo() {
 }
 
 gitrecent() {
-  echo "Listing the 10 most recently updated local git branches:"
+  echo; echo "Listing the 10 most recently updated local git branches:"; echo;
   git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 }
 
