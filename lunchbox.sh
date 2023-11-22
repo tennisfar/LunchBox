@@ -241,7 +241,6 @@ alias gw-bingo='gulp && gulp watch --theme Bingo'
 alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
-alias gitem2021='git fetch && git pull origin feature/IU-15932-em-content-hub-v3'
 
 # Find breakpoints in DS
 alias breakpoints="c; ds; grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/DanskeSpil/"
@@ -254,7 +253,10 @@ npmglob() {
   npm list -g --depth=0; 
 }
 
-alias killnode='taskkill -F -IM node.exe'
+# Forcefully terminate all Node.js processes
+killnode() {
+  taskkill -F -IM node.exe 
+}
 
 pretty() { 
   npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc
