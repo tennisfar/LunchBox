@@ -1,6 +1,7 @@
 # Default OSX paths
 LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 REP="/Users/mlp/_rep"
+EMAIL="ekmlpe@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
   # Overwrite default OSX paths
@@ -224,9 +225,9 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 alias timelog='ds;echo " Hours:"; git log --committer=ekmlpe@danskespil.dk --since="1 week ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s" ; echo ; cd -'
 alias hours='timelog'
 
-# Check out pam-n-sub
-alias pns='fo pam-n-sub ; git pull'
+# Check out
 alias today='ds;echo " Since midnight:"; git log --committer=ekmlpe@danskespil.dk --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
+alias today2='ds;echo " Since midnight:"; git log --committer=@EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
 alias yesterday='ds;echo " Since early morning yesterday:"; git log --committer=ekmlpe@danskespil.dk --since="yesterday" --until=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s" ; echo ; cd -'
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
 alias gitup='git fetch origin ; git branch -v -a'
@@ -252,10 +253,9 @@ alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../break
 ### OTHER
 alias npmglob='npm list -g --depth=0'
 alias killnode='taskkill -F -IM node.exe'
-alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc . ; pretty'
 alias pretty='npx prettier . --write'
+alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc . ; pretty'
 alias sitetail='node /c/Projects/rep/SiteTail/index.js'
-alias jira='node c:/Projects/jira-cli/create-issue.js'
 alias is='iisreset /timeout:0 > null ; iisreset'
 
 
