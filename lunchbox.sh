@@ -252,7 +252,7 @@ alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../break
 
 
 ### OTHER
-npmglobal() {
+npmglob() {
   echo "Globally installed npm packages:";
   npm list -g --depth=0; 
 }
