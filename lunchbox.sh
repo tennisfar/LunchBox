@@ -61,12 +61,17 @@ fn_brs() {
 alias brs='fn_brs'
 
 br() {
+  # Update Bash and repository
   source $LUNCHBOX/lunchbox.sh > /dev/null
   fn_brs
   echo --- reloaded  
 }
 
-alias brf="source $LUNCHBOX/lunchbox.sh > /dev/null ; echo --- reloaded fast" # Update everything
+brf() {
+  # Update Bash, don't save changes to repository
+  source $LUNCHBOX/lunchbox.sh > /dev/null
+  echo --- reloaded fast  
+}
 
 # Update Github Assets
 upass() {
