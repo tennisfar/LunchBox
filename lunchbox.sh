@@ -64,13 +64,13 @@ br() {
   # Update Bash and repository
   source $LUNCHBOX/lunchbox.sh > /dev/null
   fn_brs
-  echo --- Reloaded Bash, backed up Lunchbox
+  echo; echo --- Reloaded Bash, backed up Lunchbox
 }
 
 brf() {
   # Update Bash, don't save changes to repository
   source $LUNCHBOX/lunchbox.sh > /dev/null
-  echo --- Reloaded Bash  
+  echo; echo --- Reloaded Bash  
 }
 
 # Update Github Assets
