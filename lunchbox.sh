@@ -222,13 +222,13 @@ hours() {
 }
 
 # Displays git log for the specified committer since midnight
-alias today='f() {
+today() {
   ds;
   echo " Since midnight:";
   git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
   echo;
   cd -;
-}; f'
+}
 
 alias myremotebranches='git for-each-ref --format=" %09 %(authordate:short) %09 %(authorname) %09 git push origin --delete %(refname)" --sort=-authordate | grep Michael | grep refs/remotes | grep -n " " | sed "s@refs/remotes/origin/@@g" | sed "s@Lothar@L@g"'
 alias gitup='git fetch origin ; git branch -v -a'
