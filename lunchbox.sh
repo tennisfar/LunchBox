@@ -183,6 +183,7 @@ alias gitup='git fetch origin ; git branch -v -a'
 
 # Fetches updates from the remote and lists the last 5 git release branches
 gitreleases() {
+  echo; echo The most recent release branches:; echo ---------------------------------
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
