@@ -52,8 +52,8 @@ fn_brs() {
     echo --- backup osx
   fi
 
-  git add -A
-  git commit -m ":package:"
+  git add -A > /dev/null
+  git commit -m ":package:" > /dev/null
   gitadded
   git push
   cd - > /dev/null
