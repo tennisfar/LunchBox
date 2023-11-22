@@ -1,11 +1,11 @@
-# Default OSX paths
+# Default OSX settings
 LUNCHBOX="/Users/mlp/_rep/Lunchbox"
-EMAIL="ekmlpe@danskespil.dk"
 REP="/Users/mlp/_rep"
 PATH_DS='/c/Projects/ds/develop'
+EMAIL="ekmlpe@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
-  # Overwrite default OSX paths
+  # Overwrite default OSX settings to Windows settings
   LUNCHBOX="/c/Projects/rep/Lunchbox"
   REP="/c/Projects/rep"
 
@@ -22,6 +22,7 @@ if [[ $(uname -s) != Darwin ]]; then # Windows
   export PATH="/c/Webdriver:$PATH"
   export PATH="$HOME/.nvm:$PATH"
 else
+  # OSX settings:
   alias ll='ls -lhF'
   alias ls='ls -hF1'
   alias brewuninstall='brew uninstall $1'
@@ -58,8 +59,8 @@ fn_brs() {
   cd -
 }
 alias brs='fn_brs'
-alias br="source $LUNCHBOX/lunchbox.sh ; fn_brs; echo --- reloaded" # Update everything
-alias brf="source $LUNCHBOX/lunchbox.sh ; echo --- reloaded fast" # Update everything
+alias br="source $LUNCHBOX/lunchbox.sh > null ; fn_brs; echo --- reloaded" # Update everything
+alias brf="source $LUNCHBOX/lunchbox.sh > null ; echo --- reloaded fast" # Update everything
 
 # Update Github Assets
 upass() {
@@ -109,11 +110,7 @@ alias gitadded='git show --stat --oneline HEAD'
 alias gs='git status'
 alias gitpu='git add -A && git commit -m ":package:" && git push'
 
-### DOCKER
-alias deletealldockerimages='docker rmi $(docker images -q)'
-alias locserver='python -m SimpleHTTPServer 8005'
-
-### DS
+### SwitchDliDlo shortcuts
 alias dlo='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dlo && ds'
 alias dli='ds && cd Scripts && cd Local && powershell ./SwitchDliDloContext.ps1 -destinationContext dli && ds && git checkout -- Website/Components/DanskeSpil/Framework/PlayerAccountManagement/Include/zzz.DanskeSpil.Framework.PlayerAccountManagement_local.config'
 
@@ -131,8 +128,7 @@ rmf() {
   rm -rf "$1"
 }
 
-alias gitcomparerel='gitCompareRel'
-gitCompareRel() {
+gitcomparerel() {
   git fetch
   git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..
 }
@@ -186,7 +182,7 @@ alias breakpoints="c; ds; grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/Dan
 # Find breakpoints in DS, save to file
 alias breakpoints-to-file="c; ds; breakpoints | grep -Eo '[0-9]{3,4}' > ../breakpointvalues.txt"
 
-npmglob() {
+npmglobal() {
   echo; echo "Globally installed npm packages:"; echo;
   npm list -g --depth=0; 
 }
@@ -222,3 +218,6 @@ alias gitbranchlastupdate='git for-each-ref --sort=committerdate refs/heads/ --f
 # Update git remote to GitLab
 alias sumo="git remote -v && echo git remote set-url origin https://gitlab.com/tennisfar/REPOSITORY.git"
 
+### DOCKER
+alias deletealldockerimages='docker rmi $(docker images -q)'
+alias locserver='python -m SimpleHTTPServer 8005'
