@@ -255,11 +255,12 @@ npmglob() {
 }
 
 alias killnode='taskkill -F -IM node.exe'
-pretty() {
-  echo "Pretty!";
-  npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc;   
+
+pretty() { 
+  npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc
 }
-alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc . ; pretty'
+
+alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 alias sitetail='node /c/Projects/rep/SiteTail/index.js'
 alias is='iisreset /timeout:0 > null ; iisreset'
 
