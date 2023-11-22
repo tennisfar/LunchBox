@@ -184,18 +184,16 @@ alias runtoday='runtoday01'
 # DS Compare screenshots
 alias compare='ds && .. && cd ds-compare-screenshots && npm start && cd ./output && explorer .'
 
-# merge latest updates from pam-n-sub into current branch
+# Merge latest updates from main into current branch
 alias gitmain='git fetch && git merge origin/main'
 
-
-# merge latest updates from specific release branch into current branch
+# Merge latest updates from specific release branch into current branch
 gitrel() {
   git fetch;
   git merge origin/release/DS-"$1";
 }
 
-
-# rm -rf bash command
+# Deletes a file or directory forcefully. Example: rmf test
 rmf() {
   rm -rf "$1"
 }
@@ -216,13 +214,13 @@ alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 
 
 # Hours
-alias hours='f() {
+hours() {
   ds;
   echo " Hours:"; 
   git log --committer=$EMAIL --since="2 weeks ago" --all --no-merges --date=format:"%a %d/%m %H:%M" --pretty=format:"%<(20) %ad %s";
   echo;
   cd -;
-}; f'
+}
 
 # Today
 alias today='f() {
