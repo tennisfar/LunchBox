@@ -59,8 +59,8 @@ fn_brs() {
   cd -
 }
 alias brs='fn_brs'
-alias br="source $LUNCHBOX/lunchbox.sh > null ; fn_brs; echo --- reloaded" # Update everything
-alias brf="source $LUNCHBOX/lunchbox.sh > null ; echo --- reloaded fast" # Update everything
+alias br="source $LUNCHBOX/lunchbox.sh > /dev/null ; fn_brs; echo --- reloaded" # Update everything
+alias brf="source $LUNCHBOX/lunchbox.sh > /dev/null ; echo --- reloaded fast" # Update everything
 
 # Update Github Assets
 upass() {
