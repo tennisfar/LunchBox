@@ -237,7 +237,7 @@ todayFn() {
   cd -;
 }
 
-alias xxx='() {
+alias xxx='f() {
              ds;
              echo " Since midnight:";
              git log --committer=$EMAIL --since=00:00:00 --all --no-merges --pretty=format:"%<(20) %ar %s";
