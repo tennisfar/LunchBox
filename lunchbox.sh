@@ -59,7 +59,13 @@ fn_brs() {
   cd - > /dev/null
 }
 alias brs='fn_brs'
-alias br="source $LUNCHBOX/lunchbox.sh > /dev/null ; fn_brs; echo --- reloaded" # Update everything
+
+br() {
+  source $LUNCHBOX/lunchbox.sh > /dev/null
+  fn_brs
+  echo --- reloaded  
+}
+
 alias brf="source $LUNCHBOX/lunchbox.sh > /dev/null ; echo --- reloaded fast" # Update everything
 
 # Update Github Assets
@@ -69,7 +75,7 @@ upass() {
   git commit -m ":package:"
   git show --stat --oneline HEAD
   git push
-  cd -
+  cd - > /dev/null
 }
 
 # Handy shortcuts
