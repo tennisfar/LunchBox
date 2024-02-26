@@ -181,7 +181,7 @@ today() {
 
 alias gitup='git fetch origin ; git branch -v -a'
 
-# Fetches updates from the remote and lists the last 5 git release branches
+# Lists the most recent DS release branches
 gitreleases() {
   echo; echo The most recent release branches:; echo ---------------------------------
   git fetch --dry-run --quiet 
