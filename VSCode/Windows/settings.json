@@ -4,5 +4,6 @@
   "tabnine.experimentalAutoImports": true,
   "editor.inlineSuggest.enabled": true,
   "workbench.colorTheme": "Default Dark+ Experimental",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
