@@ -13,3 +13,9 @@ or (Windows):
 ```bash
 source /c/Projects/Lunchbox/lunchbox.sh
 ```
+
+### Rider setup
+In settings, to go Tools/Terminal. In Application Settings, add this Shell path:
+```bash
+"C:\Program Files\Git\bin\bash.exe" -login -i
+```
