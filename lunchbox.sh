@@ -98,6 +98,7 @@ alias rep="cd $REP"
 
 # Quick edit this page (vial: VIm ALiases)
 alias vial='vi $LUNCHBOX/lunchbox.sh'
+alias vialc='code $LUNCHBOX/lunchbox.sh'
 
 # Search for a specified string in all files within the current directory. Example: findinfiles hello
 findinfiles() {
