@@ -11,5 +11,7 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "git.confirmSync": false,
+  "git.autofetch": true
 }

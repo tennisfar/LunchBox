@@ -223,7 +223,7 @@ pretty() {
 alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .'
 
 # Execute SiteTail
-alias sitetail='node /c/Projects/rep/SiteTail/index.js'
+alias sitetail='c && node /c/Projects/rep/SiteTail/index.js'
 
 # IIS reset, the fast way
 alias is='iisreset /timeout:0 > null ; iisreset'
