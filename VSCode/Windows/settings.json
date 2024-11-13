@@ -3,7 +3,6 @@
   "win-ca.inject": "append",
   "tabnine.experimentalAutoImports": true,
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Default Dark+ Experimental",
   "vsicons.dontShowNewVersionMessage": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "[javascript]": {
@@ -14,5 +13,6 @@
   },
   "git.confirmSync": false,
   "git.autofetch": true,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-cmd.exe"
 }
