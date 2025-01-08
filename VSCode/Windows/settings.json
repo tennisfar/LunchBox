@@ -6,7 +6,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "hb432.prettier-eslint-typescript"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -15,5 +15,15 @@
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "terminal.external.windowsExec": "\"C:\\Program Files\\Git\\bin\\bash.exe\" -login -i",
-  "terminal.integrated.env.windows": {}
+  "terminal.integrated.env.windows": {},
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "eslint.format.enable": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[typescript]": {
+    "editor.defaultFormatter": "hb432.prettier-eslint-typescript"
+  }
 }
