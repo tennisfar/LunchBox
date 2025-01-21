@@ -199,6 +199,8 @@ alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 
+alias prodapi = 'rep ; cd prod-to-local-api ; npm start'
+
 # Find breakpoints in DS
 alias breakpoints="c; ds; grep -Ehr '^@.*:.*[0-9]{3,}px;' Website/Components/DanskeSpil/"
 
