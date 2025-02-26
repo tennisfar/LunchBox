@@ -188,7 +188,7 @@ gitreleases() {
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
-
+alias latestrel='gitreleases'
 alias w='gulp watch'
 alias g='gulp'
 alias gw='gulp && gulp watch'
