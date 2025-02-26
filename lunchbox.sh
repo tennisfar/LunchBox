@@ -185,6 +185,7 @@ alias gitup='git fetch origin ; git branch -v -a'
 # Lists the most recent DS release branches
 gitreleases() {
   echo; echo The most recent release branches:; echo ---------------------------------
+  ds
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
