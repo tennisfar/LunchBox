@@ -192,7 +192,10 @@ gitreleases() {
 alias latestrel='gitreleases'
 alias w='gulp watch'
 alias g='gulp'
-alias gw='gulp && npm run build:v2 && gulp watch'
+
+alias gw='ds && npm run build && npm run build:v2 && npm run build:v2:watch'
+alias gwOLD='gulp && npm run build:v2 && gulp watch'
+
 alias gw2='gulp && npm run build:v2 && gulp watch'
 alias gl='gulp lint && gulp stylelint'
 alias gw-bingo='gulp && gulp watch --theme Bingo'

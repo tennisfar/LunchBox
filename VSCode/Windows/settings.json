@@ -6,7 +6,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "[javascript]": {
-    "editor.defaultFormatter": "hb432.prettier-eslint-typescript"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -27,5 +27,8 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
-  "settingsSync.ignoredSettings": []
+  "settingsSync.ignoredSettings": [],
+  "explorer.confirmDragAndDrop": false,
+  "chat.agent.enabled": true,
+  "workbench.colorTheme": "Default Light Modern"
 }
