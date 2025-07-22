@@ -1,7 +1,8 @@
 # Default OSX settings
 LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 REP="/Users/mlp/_rep"
-PATH_DS='/c/Projects/ds/danskespil-website'
+# PATH_DS='/c/Projects/ds/danskespil-website'
+PATH_DS='/c/Projects/ds/develop'
 EMAIL="ekmlpe@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
