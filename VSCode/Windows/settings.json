@@ -30,5 +30,6 @@
   "settingsSync.ignoredSettings": [],
   "explorer.confirmDragAndDrop": false,
   "chat.agent.enabled": true,
-  "workbench.colorTheme": "Default Light Modern"
+  "workbench.colorTheme": "Default Light Modern",
+  "github.copilot.nextEditSuggestions.enabled": true
 }

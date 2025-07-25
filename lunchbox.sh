@@ -2,7 +2,8 @@
 LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 REP="/Users/mlp/_rep"
 # PATH_DS='/c/Projects/ds/danskespil-website'
-PATH_DS='/c/Projects/ds/develop'
+# PATH_DS='/c/Projects/ds/develop'
+PATH_DS='/c/Projects/ds/trunk'
 EMAIL="ekmlpe@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
