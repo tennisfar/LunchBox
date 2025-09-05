@@ -150,6 +150,8 @@ rmf() {
   rm -rf "$1"
 }
 
+alias pw='powershell'
+
 gitcomparerel() {
   git fetch
   git log --oneline --no-merges --author=ekmlpe origin/release/DS-$1..
