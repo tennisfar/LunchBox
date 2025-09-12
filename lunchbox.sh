@@ -208,7 +208,7 @@ alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 
-alias npp='/c/Program Files (x86)/Notepad++/notepad++exe'
+alias npp='"/c/Program Files (x86)/Notepad++/notepad++exe"'
 
 alias prodapi='rep ; cd prod-to-local-api ; npm start'
 
