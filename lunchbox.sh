@@ -205,7 +205,7 @@ pretty() {
 # =========================
 alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 alias w='gulp watch'
-alias g='gulp'
+alias g='npm run gulp'
 alias gw='npm run build && npm run build:v2 && npm run build:v2:watch'
 alias gw2='gulp && npm run build:v2 && gulp watch'
 alias gl='gulp lint && gulp stylelint'
