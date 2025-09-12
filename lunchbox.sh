@@ -1,24 +1,22 @@
 # =========================
 # 1. Environment Variables
 # =========================
-LUNCHBOX="/Users/mlp/_rep/Lunchbox"
-REP="/Users/mlp/_rep"
-# PATH_DS='/c/Projects/ds/danskespil-website'
-# PATH_DS='/c/Projects/ds/develop'
-PATH_DS='/c/Projects/danskespil-website/develop'
+PATH_DS="/c/Projects/danskespil-website/develop"
+PATH_LUNCHBOX="/Users/mlp/_rep/Lunchbox"
+PATH_REP="/Users/mlp/_rep"
 EMAIL="ekmlpe@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
   # Overwrite default OSX settings to Windows settings
-  LUNCHBOX="/c/Projects/rep/Lunchbox"
-  REP="/c/Projects/rep"
+  PATH_LUNCHBOX="/c/Projects/rep/Lunchbox"
+  PATH_REP="/c/Projects/rep"
 
   # Pretty output in Windows like on OSX
   alias ll='ls -lhF --color --group-directories-first'
   alias ls='ls -hF --color --group-directories-first'
 
   # More paths, Windows specific
-  export PATH="$LUNCHBOX:$PATH"
+  export PATH="$PATH_LUNCHBOX:$PATH"
   export PATH="$HOME/AppData/Roaming/npm:$PATH"
   export PATH="/c/Python27:$PATH"
   export PATH="$HOME/.windows-build-tools-python27:$PATH"
@@ -34,7 +32,7 @@ else
   alias brewuninstall='brew uninstall $1'
   alias ll='ls -lhF'
   alias ls='ls -hF1'
-  source $LUNCHBOX/.Secret/environment-variables.sh
+  source $PATH_LUNCHBOX/.Secret/environment-variables.sh
 fi
 
 
@@ -45,9 +43,9 @@ fi
 # =========================
 alias ..='cd ..'
 alias ...='cd ../..'
-alias box="cd $LUNCHBOX"
-alias ds='cd $PATH_DS'
-alias rep="cd $REP"
+alias box="cd $PATH_LUNCHBOX"
+alias ds="cd $PATH_DS"
+alias rep="cd $PATH_REP"
 
 
 
@@ -58,7 +56,7 @@ alias rep="cd $REP"
 alias hosts='code /c/Windows/System32/drivers/etc/hosts'
 alias hostsnpp='npp /c/Windows/System32/drivers/etc/hosts'
 alias npp='"/c/Program Files (x86)/Notepad++/notepad++.exe"'
-alias vial='code $LUNCHBOX/lunchbox.sh'
+alias vial="code $PATH_LUNCHBOX/lunchbox.sh"
 
 
 
@@ -196,7 +194,7 @@ killnode() {
 }
 
 pretty() { 
-  npx prettier . --write --config $LUNCHBOX/DotFiles/.prettierrc
+  npx prettier . --write --config "$PATH_LUNCHBOX/DotFiles/.prettierrc"
 }
 
 
@@ -215,7 +213,7 @@ alias gw-bingo='gulp && gulp watch --theme Bingo'
 alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
-alias prettyhere='cp $LUNCHBOX/DotFiles/.prettierrc .' # Add Prettier config file to current directory
+alias prettyhere='cp $PATH_LUNCHBOX/DotFiles/.prettierrc .' # Add Prettier config file to current directory
 alias sitetail='c && node /c/Projects/rep/SiteTail/index.js' # Execute SiteTail
 
 # Starts BrowserSync to watch and reload files for https://web.develop.danskespil.dk:3000, useful for live reloading during web development
@@ -245,9 +243,9 @@ alias locserver='python -m SimpleHTTPServer 8005'
 
 
 
-# =====================================
+# =========================
 # 11. Remaining Functions & Automations
-# =====================================
+# =========================
 
 # Synchronize Lunchbox with origin
 synclunchbox() {
@@ -265,7 +263,7 @@ fn_brs() {
 
   if [[ $(uname -s) != Darwin ]]; then
     # backup windows
-    cp $APPDATA/Code/User/settings.json $LUNCHBOX/VSCode/Windows/settings.json
+    cp "$APPDATA/Code/User/settings.json" "$PATH_LUNCHBOX/VSCode/Windows/settings.json"
   else
     # backup osx
     true
@@ -281,14 +279,14 @@ alias brs='fn_brs'
 
 br() {
   # Update Bash and repository
-  source $LUNCHBOX/lunchbox.sh > /dev/null
+  source $PATH_LUNCHBOX/lunchbox.sh > /dev/null
   fn_brs
   echo; echo --- Bash reloaded, Lunchbox changes saved to origin
 }
 
 brf() {
   # Update Bash, don't save changes to repository
-  source $LUNCHBOX/lunchbox.sh > /dev/null
+  source $PATH_LUNCHBOX/lunchbox.sh > /dev/null
   echo; echo --- Bash reloaded  
 }
 
