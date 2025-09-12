@@ -204,6 +204,7 @@ pretty() {
 # 8. Build/Dev Tools
 # =========================
 alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
+alias dsdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1"'
 alias w='gulp watch'
 alias g='npm run gulp'
 alias gw='npm run build && npm run build:v2 && npm run build:v2:watch'
