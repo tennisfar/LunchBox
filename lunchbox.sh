@@ -152,6 +152,7 @@ rmf() {
 
 alias pw='powershell'
 alias hosts='code /c/Windows/System32/drivers/etc/hosts'
+alias npphosts='npp /c/Windows/System32/drivers/etc/hosts'
 
 gitcomparerel() {
   git fetch
