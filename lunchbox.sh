@@ -150,9 +150,10 @@ rmf() {
   rm -rf "$1"
 }
 
-alias pw='powershell'
 alias hosts='code /c/Windows/System32/drivers/etc/hosts'
-alias npphosts='npp /c/Windows/System32/drivers/etc/hosts'
+alias hostsnpp='npp /c/Windows/System32/drivers/etc/hosts'
+alias npp='"/c/Program Files (x86)/Notepad++/notepad++.exe"'
+alias pw='powershell'
 
 gitcomparerel() {
   git fetch
@@ -209,7 +210,6 @@ alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 
-alias npp='"/c/Program Files (x86)/Notepad++/notepad++.exe"'
 
 alias prodapi='rep ; cd prod-to-local-api ; npm start'
 
