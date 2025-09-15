@@ -197,6 +197,8 @@ pretty() {
   npx prettier . --write --config "$PATH_LUNCHBOX/DotFiles/.prettierrc"
 }
 
+alias chrome-insecure='google-chrome --ignore-certificate-errors --user-data-dir="$HOME/.chrome-dev"'
+
 
 
 
