@@ -197,7 +197,7 @@ pretty() {
   npx prettier . --write --config "$PATH_LUNCHBOX/DotFiles/.prettierrc"
 }
 
-alias chrome-insecure='google-chrome --ignore-certificate-errors --user-data-dir="$HOME/.chrome-dev"'
+alias chrome-insecure='"/c/Program Files/Google/Chrome/Application/chrome.exe" --ignore-certificate-errors --user-data-dir="$HOME/.chrome-dev"'
 
 
 
@@ -208,7 +208,9 @@ alias chrome-insecure='google-chrome --ignore-certificate-errors --user-data-dir
 alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
 alias dsdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1" ; cd - > /dev/null || exit'
 alias kldeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -projectName Feature.KlubLotto" ; cd - > /dev/null || exit'
-alias klfdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -projectName Feature.KlubLotto -frontendOnly" ; cd - > /dev/null || exit'
+alias dsfdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -frontendOnly" ; cd - > /dev/null || exit'
+alias klfdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -projectName Feature.KlubLotto -frontendOnly" ; powershell -Command ".\deploy.ps1 -projectName Project.Website -frontendOnly" ; cd - > /dev/null || exit'
+alias klcss='ds; gulp styles --theme=Styles/DanskeSpil/region-klublotto ; cd - > /dev/null || exit'
 alias w='gulp watch'
 alias g='npm run gulp'
 alias gw='npm run build && npm run build:v2 && npm run build:v2:watch'
@@ -220,6 +222,7 @@ alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 alias prettyhere='cp $PATH_LUNCHBOX/DotFiles/.prettierrc .' # Add Prettier config file to current directory
 alias sitetail='c && node /c/Projects/rep/SiteTail/index.js' # Execute SiteTail
+alias kllint='npx eslint ./Website/Components/DanskeSpil/Domain/Feature.KlubLotto/Scripts/'
 
 # Starts BrowserSync to watch and reload files for https://web.develop.danskespil.dk:3000, useful for live reloading during web development
 # Reference: https://browsersync.io/docs/command-line
