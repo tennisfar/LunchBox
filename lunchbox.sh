@@ -1,7 +1,7 @@
 # =========================
 # 1. Environment Variables
 # =========================
-PATH_DS="/c/Projects/danskespil-website/develop"
+PATH_DS="/c/Projects/danskespil-website"
 PATH_LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 PATH_REP="/Users/mlp/_rep"
 EMAIL="ekmlpe@danskespil.dk"

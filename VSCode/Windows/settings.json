@@ -31,5 +31,7 @@
   "explorer.confirmDragAndDrop": false,
   "chat.agent.enabled": true,
   "workbench.colorTheme": "Default Light Modern",
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }
