@@ -2,6 +2,7 @@
 # 1. Environment Variables
 # =========================
 PATH_DS="/c/Projects/danskespil-website"
+PATH_DDK="/c/Projects/klasselotteriet-website"
 PATH_LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 PATH_REP="/Users/mlp/_rep"
 EMAIL="ekmlpe@danskespil.dk"
@@ -45,6 +46,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias box="cd $PATH_LUNCHBOX"
 alias ds="cd $PATH_DS"
+alias ddk="cd $PATH_DDK"
 alias rep="cd $PATH_REP"
 
 
@@ -206,6 +208,9 @@ alias chrome-insecure='"/c/Program Files/Google/Chrome/Application/chrome.exe" -
 # 8. Build/Dev Tools
 # =========================
 alias bygds='ds; rm Website/obj -r ; cd - > null ; echo Removed obj folder'
+alias ddkf='ddk; cd src/Project/Klasselotteriet/Website/angularSrc/';
+alias ddkdeploy='ddk; cd '__deploy/__local'; powershell -Command "./deploy.ps1 C:\websites\klasselotteriet.local" ; cd - > /dev/null || exit'
+alias ddkfdeploy='ddk; cd '__deploy/__local'; powershell -Command "./deploy.ps1 C:\websites\klasselotteriet.local" -frontendOnly ; cd - > /dev/null || exit'
 alias dsdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1" ; cd - > /dev/null || exit'
 alias kldeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -projectName Feature.KlubLotto" ; cd - > /dev/null || exit'
 alias dsfdeploy='ds; cd '__deploy/__local'; powershell -Command "./deploy.ps1 -frontendOnly" ; cd - > /dev/null || exit'
