@@ -30,10 +30,23 @@
   "settingsSync.ignoredSettings": [],
   "explorer.confirmDragAndDrop": false,
   "chat.agent.enabled": true,
-  "workbench.colorTheme": "Default Light Modern",
+  "workbench.colorTheme": "Light 2026",
   "github.copilot.nextEditSuggestions.enabled": true,
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "chat.mcp.gallery.enabled": true,
-  "chat.viewSessions.orientation": "stacked"
+  "chat.viewSessions.orientation": "stacked",
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": false,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": false,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": false
+  }
 }
