@@ -133,13 +133,13 @@ today() {
 alias gitup='git fetch origin ; git branch -v -a'
 
 # Lists the most recent DS release branches
-gitreleases() {
+gitreleasesds() {
   echo; echo The most recent release branches:; echo ---------------------------------
   ds
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
-alias latestrel='gitreleases'
+alias latestds='gitreleasesds'
 
 # Lists the most recent DDK release branches
 gitreleasesddk() {
@@ -149,6 +149,23 @@ gitreleasesddk() {
   git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestddk='gitreleasesddk'
+
+gitrels() {
+  echo; echo The most recent DS release branches:
+  echo ---------------------------------
+  ds
+  git fetch --dry-run --quiet 
+  git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  echo
+  cd - > /dev/null || exit
+  echo; echo The most recent DDK release branches:
+  echo ---------------------------------
+  ddk
+  git fetch --dry-run --quiet 
+  git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  cd - > /dev/null || exit
+}
+alias rels='gitrels'
 
 # Utils from https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/
 alias gitstat='echo --- Commits in 2018: ; git shortlog -sn --all --no-merges --since="2018-01-01"'
