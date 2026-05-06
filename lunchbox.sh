@@ -144,7 +144,7 @@ alias latestrel='gitreleases'
 # Lists the most recent DDK release branches
 gitreleasesddk() {
   echo; echo The most recent release branches:; echo ---------------------------------
-  ds
+  ddk
   git fetch --dry-run --quiet 
   git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
