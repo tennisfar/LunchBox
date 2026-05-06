@@ -141,6 +141,15 @@ gitreleases() {
 }
 alias latestrel='gitreleases'
 
+# Lists the most recent DDK release branches
+gitreleasesddk() {
+  echo; echo The most recent release branches:; echo ---------------------------------
+  ds
+  git fetch --dry-run --quiet 
+  git for-each-ref | grep -E ".*release/DDK-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+}
+alias latestddk='gitreleasesddk'
+
 # Utils from https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/
 alias gitstat='echo --- Commits in 2018: ; git shortlog -sn --all --no-merges --since="2018-01-01"'
 alias gitoverview='git log --all --since="yesterday" --oneline --no-merges'
