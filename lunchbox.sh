@@ -146,7 +146,7 @@ gitreleasesddk() {
   echo; echo The most recent release branches:; echo ---------------------------------
   ds
   git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*release/DDK-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestddk='gitreleasesddk'
 
