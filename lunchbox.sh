@@ -331,7 +331,7 @@ brf() {
 
 # Update Github Assets
 upass() {
-  cd /c/Projects/rep/assets
+  cd $PATH_REP/assets
   git add -A
   git commit -m ":package:"
   gitadded
