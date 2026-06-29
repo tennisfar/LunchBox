@@ -332,6 +332,7 @@ brf() {
 # Update Github Assets
 upass() {
   cd $PATH_REP/assets
+  git pull
   git add -A
   git commit -m ":package:"
   gitadded

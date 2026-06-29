@@ -48,5 +48,107 @@
     "repositories": true,
     "searchAndCompare": false,
     "launchpad": false
+  },
+  "chat.tools.terminal.autoApprove": {
+    "git add": true,
+    "git commit": true,
+    "/^cd /Users/mlp/_rep/pa/fitness/strava && node fetch_activities\\.js 2>/dev/null \\| tail -8$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/fitness/strava && node -e \"\nconst data = require\\('\\./data/activities\\.json'\\);\nconst run = data\\.sort\\(\\(a,b\\) => new Date\\(b\\.start_date\\)-new Date\\(a\\.start_date\\)\\)\\[0\\];\nconsole\\.log\\('Navn:', run\\.name\\);\nconsole\\.log\\('Type:', run\\.sport_type\\);\nconsole\\.log\\('Dato:', run\\.start_date_local\\);\nconsole\\.log\\('Distance:', \\(run\\.distance/1000\\)\\.toFixed\\(2\\), 'km'\\);\nconsole\\.log\\('Varighed:', Math\\.floor\\(run\\.moving_time/60\\)\\+'m '\\+run\\.moving_time%60\\+'s'\\);\nconsole\\.log\\('Tempo:', Math\\.floor\\(run\\.moving_time/run\\.distance\\*1000/60\\)\\+':'\\+ String\\(Math\\.round\\(run\\.moving_time/run\\.distance\\*1000%60\\)\\)\\.padStart\\(2,'0'\\), '/km'\\);\nconsole\\.log\\('Gns\\. puls:', run\\.average_heartrate\\);\nconsole\\.log\\('Max puls:', run\\.max_heartrate\\);\nconsole\\.log\\('Højdeforskel:', run\\.total_elevation_gain, 'm'\\);\n\"\n$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node fetch_garmin\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/fitness/strava && node fetch_activities\\.js 2>/dev/null \\| tail -5 && node -e \"\nconst data = require\\('\\./data/activities\\.json'\\);\nconst today = data\\.filter\\(a => a\\.start_date_local\\.startsWith\\('2026-06-05'\\)\\);\ntoday\\.forEach\\(a => console\\.log\\(a\\.start_date_local, '\\|', a\\.sport_type, '\\|', a\\.name, '\\|', Math\\.round\\(a\\.moving_time/60\\)\\+'min'\\)\\);\n\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/fitness/garmin && node fetch_garmin\\.js 2>&1 \\| grep -E \"Vægt\\|poster\\|Hvilepuls\\|VO2\\|Gemt\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/fitness/garmin && node -e \"\nrequire\\('dotenv'\\)\\.config\\(\\);\nconst \\{GarminConnect\\} = require\\('garmin-connect'\\);\nconst c = new GarminConnect\\(\\{username: process\\.env\\.GARMIN_EMAIL, password: process\\.env\\.GARMIN_PASSWORD\\}\\);\nc\\.login\\(\\)\\.then\\(\\(\\) => c\\.getDailyWeightData\\(new Date\\('2026-06-06'\\)\\)\\)\\.then\\(w => \\{\n  console\\.log\\('dateWeightList:', JSON\\.stringify\\(w\\.dateWeightList\\)\\);\n  console\\.log\\('totalAverage\\.weight:', w\\.totalAverage\\.weight\\);\n\\}\\)\\.catch\\(e => console\\.error\\(e\\.message\\)\\);\n\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/fitness/withings && node fetch_withings\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node fetch_withings\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /c/Projects/rep/dtf && node scripts/dtf-login\\.js --player=eva 2>&1$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /c/Projects/rep/Naerum2 && git add -A && git commit -m \"Vis walkover tydeligt i Sæsonen 2026-oversigten på forsiden\" && git push origin HEAD:master$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "git push": true,
+    "/^node /Users/mlp/_rep/pa/økonomi/billy/billy\\.js check$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node /Users/mlp/_rep/pa/økonomi/billy/billy-debug\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node /Users/mlp/_rep/pa/økonomi/billy/billy-probe\\.js$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node /Users/mlp/_rep/pa/økonomi/billy/billy\\.js diagnose 2025$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node billy\\.js diagnose 2025$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node -e '\nconst \\{ openSession \\} = require\\(\"\\./billy-session\"\\);\nconst OID = \"c5cFyjbBQquSjWqkbHrWNQ\";\n\\(async \\(\\) => \\{\n  const \\{ api, close \\} = await openSession\\(\\);\n  const accounts = await api\\.getAll\\(\"/accounts\", \\{ organizationId: OID \\}\\);\n  const postings = await api\\.getAll\\(\"/postings\", \\{ organizationId: OID \\}\\);\n  const acctById = Object\\.fromEntries\\(accounts\\.map\\(a => \\[a\\.id, a\\]\\)\\);\n  // Moms accounts of interest\n  const momsNos = \\[7250, 7220, 7230, 7240, 7210\\];\n  const inH1 = p => !p\\.isVoided && p\\.entryDate >= \"2025-01-01\" && p\\.entryDate <= \"2025-06-30\";\n  const sums = \\{\\};\n  for \\(const p of postings\\) \\{\n    const a = acctById\\[p\\.accountId\\];\n    if \\(!a \\|\\| !momsNos\\.includes\\(a\\.accountNo\\)\\) continue;\n    if \\(!inH1\\(p\\)\\) continue;\n    const signed = p\\.side === \"debit\" \\? Number\\(p\\.amount\\) : -Number\\(p\\.amount\\);\n    sums\\[a\\.accountNo\\] = sums\\[a\\.accountNo\\] \\|\\| \\{ name: a\\.name, debit:0, credit:0, net:0, n:0 \\};\n    if \\(p\\.side === \"debit\"\\) sums\\[a\\.accountNo\\]\\.debit \\+= Number\\(p\\.amount\\);\n    else sums\\[a\\.accountNo\\]\\.credit \\+= Number\\(p\\.amount\\);\n    sums\\[a\\.accountNo\\]\\.net \\+= signed;\n    sums\\[a\\.accountNo\\]\\.n\\+\\+;\n  \\}\n  console\\.log\\(\"=== Momskonti H1 2025 \\(entryDate 01-01\\.\\.30-06-2025\\) ===\"\\);\n  for \\(const no of momsNos\\) \\{\n    const s = sums\\[no\\];\n    if \\(!s\\) \\{ console\\.log\\(no \\+ \" \\(ingen posteringer\\)\"\\); continue; \\}\n    console\\.log\\(`\\$\\{no\\} \\$\\{s\\.name\\}: debet=\\$\\{s\\.debit\\.toFixed\\(2\\)\\} kredit=\\$\\{s\\.credit\\.toFixed\\(2\\)\\} net\\(debet-kredit\\)=\\$\\{s\\.net\\.toFixed\\(2\\)\\} \\(\\$\\{s\\.n\\} post\\.\\)`\\);\n  \\}\n  await close\\(\\);\n\\}\\)\\(\\)\\.catch\\(e => \\{ console\\.error\\(\"ERR\", e\\.message\\|\\|e\\); process\\.exit\\(1\\); \\}\\);\n'$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node billy\\.js diagnose 2025 2>&1 \\| tail -60$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "awk": true,
+    "/^python3 -c \"import markdown; print\\('markdown', markdown\\.__version__\\)\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cd /Users/mlp/_rep/pa/økonomi/billy && node billy\\.js export 2026 2>&1 \\| tail -2 && echo \"---INVOICES---\" && node -e '\nconst d=require\\(\"\\./data/billy-2026\\.json\"\\);\nconst inv=\\(d\\.invoices\\|\\|\\[\\]\\)\\.sort\\(\\(a,b\\)=>\\(a\\.invoiceNo\\|\\|0\\)-\\(b\\.invoiceNo\\|\\|0\\)\\);\nlet unpaidBrutto=0,unpaidMoms=0;\nfor\\(const i of inv\\)\\{\n  const brutto=\\(i\\.amount\\|\\|0\\)\\+\\(i\\.tax\\|\\|0\\);\n  console\\.log\\(`#\\$\\{i\\.invoiceNo\\}  \\$\\{i\\.entryDate\\}  brutto \\$\\{brutto\\.toFixed\\(2\\)\\.padStart\\(12\\)\\}  moms \\$\\{\\(i\\.tax\\|\\|0\\)\\.toFixed\\(2\\)\\.padStart\\(10\\)\\}  \\$\\{i\\.isPaid\\?\"BETALT\":\"UBETALT\"\\}`\\);\n  if\\(!i\\.isPaid\\)\\{unpaidBrutto\\+=brutto; unpaidMoms\\+=i\\.tax\\|\\|0;\\}\n\\}\nconsole\\.log\\(\"UBETALT brutto\",unpaidBrutto\\.toFixed\\(2\\),\"heraf moms\",unpaidMoms\\.toFixed\\(2\\)\\);\n'$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^python3 sum_aktietabel\\.py$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^python3 kontrakttab_lager_2026\\.py$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  },
+  "chat.tools.urls.autoApprove": {
+    "https://code.visualstudio.com": true,
+    "https://github.com/microsoft/vscode/wiki/*": true,
+    "https://www.ikea.com": {
+      "approveRequest": false,
+      "approveResponse": true
+    },
+    "https://info.skat.dk": {
+      "approveRequest": false,
+      "approveResponse": true
+    }
   }
 }
