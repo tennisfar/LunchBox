@@ -67,7 +67,8 @@ alias vial="code $PATH_LUNCHBOX/lunchbox.sh"
 # 4. System Aliases
 # =========================
 alias c='clear'
-alias is='iisreset /timeout:0 > null ; iisreset'
+# alias is='iisreset /timeout:0 > null ; iisreset'
+alias is='iisreset /restart /timeout:0 > /dev/null 2>&1'
 alias pw='powershell'
 
 
