@@ -136,21 +136,22 @@ alias gitup='git fetch origin ; git branch -v -a'
 
 # Lists the most recent DS release branches
 gitreleasesds() {
-  echo; echo The most recent release branches:; echo ---------------------------------
+  echo; echo The most recent DS release branches:; echo ---------------------------------
   ds
   git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  git for-each-ref | grep -E ".*/origin/release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestds='gitreleasesds'
 
 # Lists the most recent DDK release branches
 gitreleasesddk() {
-  echo; echo The most recent release branches:; echo ---------------------------------
+  echo; echo The most recent DDK release branches:; echo ---------------------------------
   ddk
   git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  git for-each-ref | grep -E ".*/origin/release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestddk='gitreleasesddk'
+alias latest='gitreleasesds && gitreleasesddk'
 
 gitrels() {
   echo; echo The most recent DS release branches:
