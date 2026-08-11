@@ -68,8 +68,12 @@ alias vial="code $PATH_LUNCHBOX/lunchbox.sh"
 # =========================
 alias c='clear'
 # alias is='iisreset /timeout:0 > null ; iisreset'
+<<<<<<< HEAD
 # alias is='iisreset /restart'
 # alias is='iisreset /stop && iisreset /start'
+=======
+# alias is='iisreset /restart /timeout:0 > /dev/null 2>&1'
+>>>>>>> 0af42a4068cb3e206b46ae16e71ac4c37781dc18
 alias is='cmd.exe //c "iisreset /stop && iisreset /start"'
 alias pw='powershell'
 
@@ -137,21 +141,22 @@ alias gitup='git fetch origin ; git branch -v -a'
 
 # Lists the most recent DS release branches
 gitreleasesds() {
-  echo; echo The most recent release branches:; echo ---------------------------------
+  echo; echo The most recent DS release branches:; echo ---------------------------------
   ds
   git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  git for-each-ref | grep -E ".*/origin/release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestds='gitreleasesds'
 
 # Lists the most recent DDK release branches
 gitreleasesddk() {
-  echo; echo The most recent release branches:; echo ---------------------------------
+  echo; echo The most recent DDK release branches:; echo ---------------------------------
   ddk
   git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
+  git for-each-ref | grep -E ".*/origin/release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
 }
 alias latestddk='gitreleasesddk'
+alias latest='gitreleasesds && gitreleasesddk'
 
 gitrels() {
   echo; echo The most recent DS release branches:
