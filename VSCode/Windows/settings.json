@@ -32,8 +32,6 @@
   "chat.agent.enabled": true,
   "workbench.colorTheme": "Light 2026",
   "github.copilot.nextEditSuggestions.enabled": true,
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "chat.mcp.gallery.enabled": true,
   "chat.viewSessions.orientation": "stacked",
   "gitlens.views.scm.grouped.views": {
@@ -138,7 +136,20 @@
       "approve": true,
       "matchCommandLine": true
     },
-    ".": true
+    ".": true,
+    "/^acli jira workitem view DLOA-12730 --fields \"summary,description\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^acli jira workitem view DLOA-12730$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "npx expo": true,
+    "/^node scripts/generate-reading-index\\.mjs$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
   },
   "chat.tools.urls.autoApprove": {
     "https://code.visualstudio.com": true,
@@ -150,7 +161,17 @@
     "https://info.skat.dk": {
       "approveRequest": false,
       "approveResponse": true
-    }
+    },
+    "https://www.google.com": {
+      "approveRequest": false,
+      "approveResponse": true
+    },
+    "https://duckduckgo.com": {
+      "approveRequest": true,
+      "approveResponse": false
+    },
+    "https://html.duckduckgo.com": true
   },
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "powershell.promptToUpdatePowerShell": false
 }

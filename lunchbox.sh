@@ -136,24 +136,22 @@ today() {
 
 alias gitup='git fetch origin ; git branch -v -a'
 
-# Lists the most recent DS release branches
-gitreleasesds() {
-  echo; echo The most recent DS release branches:; echo ---------------------------------
-  ds
-  git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*/origin/release/DS-[0-9]{3}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
-}
-alias latestds='gitreleasesds'
-
-# Lists the most recent DDK release branches
-gitreleasesddk() {
-  echo; echo The most recent DDK release branches:; echo ---------------------------------
-  ddk
-  git fetch --dry-run --quiet 
-  git for-each-ref | grep -E ".*/origin/release/DDK-[0-9]{2}.*" | sed "s@.*.commit.refs/remotes/origin/release/@@g" | tail -5  
-}
-alias latestddk='gitreleasesddk'
-alias latest='gitreleasesds && gitreleasesddk'
+# Latest release branch and its fork-point date. Functions, as the single quotes inside would break an alias.
+# Usage: _latest_release <repo path> <branch prefix>. Example: _latest_release "$PATH_DS" DS
+_latest_release() (
+  cd "$1" || return
+  b=$(git ls-remote --heads origin "release/$2-*" | sed 's|.*refs/heads/||' | grep -E "^release/$2-[0-9]+(\.[0-9]+)*$" | sort -V | tail -1)
+  git fetch -q origin
+  base=$(git merge-base origin/HEAD "origin/$b")
+  d=$(git log -1 --format=%cd --date=short "$base")
+  # GNU date (Windows) first, BSD date (OSX) as fallback; +43200 rounds across DST changes.
+  day_epoch() { date -d "$1" +%s 2>/dev/null || date -j -f %F "$1" +%s; }
+  days=$(( ($(day_epoch "$(date +%F)") - $(day_epoch "$d") + 43200) / 86400 ))
+  case $days in 0) age="today" ;; 1) age="1 day old" ;; *) age="$days days old" ;; esac
+  echo "$b  $d ($age)"
+)
+latest() { _latest_release "$PATH_DS" DS; }
+latestddk() { _latest_release "$PATH_DDK" DDK; }
 
 gitrels() {
   echo; echo The most recent DS release branches:
@@ -257,7 +255,7 @@ alias gw-casino='gulp && gulp watch --theme Casino'
 alias gw-danskespil='gulp && gulp watch --theme DanskeSpil'
 alias gw-spillehjoernet='gulp && gulp watch --theme Spillehjoernet'
 alias prettyhere='cp $PATH_LUNCHBOX/DotFiles/.prettierrc .' # Add Prettier config file to current directory
-alias sitetail='c && node /c/Projects/rep/SiteTail/index.js' # Execute SiteTail
+alias sitetail='c && node /c/Projects/SiteTail/index.js' # Execute SiteTail
 alias kllint='npx eslint ./Website/Components/DanskeSpil/Domain/Feature.KlubLotto/Scripts/'
 
 # Starts BrowserSync to watch and reload files for https://web.develop.danskespil.dk:3000, useful for live reloading during web development
