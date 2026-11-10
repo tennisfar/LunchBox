@@ -149,7 +149,13 @@
     "/^node scripts/generate-reading-index\\.mjs$/": {
       "approve": true,
       "matchCommandLine": true
-    }
+    },
+    "/^cd \"/Users/mlp/Library/Mobile Documents/com~apple~CloudDocs/Manager/tools\" && node -e \"const p=require\\('\\.\\./private/fitness/traen-15-min\\.json'\\); console\\.log\\(p\\.exercises\\.length\\+': '\\+p\\.exercises\\.map\\(e=>e\\.name\\.split\\(' '\\)\\[0\\]\\)\\.join\\(' > '\\)\\)\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "npm run workout:build": true,
+    "npm run workout:deploy": true
   },
   "chat.tools.urls.autoApprove": {
     "https://code.visualstudio.com": true,

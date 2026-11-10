@@ -5,7 +5,8 @@ PATH_DS="/c/Projects/danskespil-website"
 PATH_DDK="/c/Projects/klasselotteriet-website"
 PATH_LUNCHBOX="/Users/mlp/_rep/Lunchbox"
 PATH_REP="/Users/mlp/_rep"
-EMAIL="ekmlpe@danskespil.dk"
+PATH_WINGET_LINKS="/c/Users/milp/AppData/Local/Microsoft/WinGet/Links" # Copilot CLI
+EMAIL="milp@danskespil.dk"
 
 if [[ $(uname -s) != Darwin ]]; then # Windows
   # Overwrite default OSX settings to Windows settings
@@ -24,6 +25,7 @@ if [[ $(uname -s) != Darwin ]]; then # Windows
   export PATH="/c/Program Files/KDiff3:$PATH"
   export PATH="/c/Webdriver:$PATH"
   export PATH="$HOME/.nvm:$PATH"
+  export PATH="$PATH_WINGET_LINKS:$PATH"
 else
   # OSX settings:
   alias brewcleanup='brew cleanup'

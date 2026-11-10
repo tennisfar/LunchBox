@@ -1,0 +1,8 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Deploy DS KlubLotto (frontend)" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="C:\Projects\danskespil-website-dlo\__deploy\__local\deploy.ps1" scriptParameters="-projectName Feature.KlubLotto -frontendOnly" executablePath="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe">
+    <envs />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Deploy DS Website (frontend)" run_configuration_type="PowerShellRunType" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,6 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Deploy DS PAM (frontend)" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="C:\Projects\danskespil-website-dlo\__deploy\__local\deploy.ps1" scriptParameters="-projectName PlayerAccountManagement -frontendOnly" executablePath="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe">
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>
